@@ -1,14 +1,14 @@
 {
-  "main.css": "/hitched/static/css/main.22dcdaa4.chunk.css",
-  "main.js": "/hitched/static/js/main.93ba085b.chunk.js",
-  "main.js.map": "/hitched/static/js/main.93ba085b.chunk.js.map",
-  "static/js/1.fa92c112.chunk.js": "/hitched/static/js/1.fa92c112.chunk.js",
-  "static/js/1.fa92c112.chunk.js.map": "/hitched/static/js/1.fa92c112.chunk.js.map",
-  "runtime~main.js": "/hitched/static/js/runtime~main.d0a1250a.js",
-  "runtime~main.js.map": "/hitched/static/js/runtime~main.d0a1250a.js.map",
-  "static/media/logo.svg": "/hitched/static/media/logo.5d5d9eef.svg",
-  "static/css/main.22dcdaa4.chunk.css.map": "/hitched/static/css/main.22dcdaa4.chunk.css.map",
-  "index.html": "/hitched/index.html",
-  "precache-manifest.f7baa58ef3307588d2401ca7319c00f2.js": "/hitched/precache-manifest.f7baa58ef3307588d2401ca7319c00f2.js",
-  "service-worker.js": "/hitched/service-worker.js"
+  "main.css": "/static/css/main.22dcdaa4.chunk.css",
+  "main.js": "/static/js/main.97b90bd1.chunk.js",
+  "main.js.map": "/static/js/main.97b90bd1.chunk.js.map",
+  "static/js/1.fa92c112.chunk.js": "/static/js/1.fa92c112.chunk.js",
+  "static/js/1.fa92c112.chunk.js.map": "/static/js/1.fa92c112.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
+  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
+  "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg",
+  "static/css/main.22dcdaa4.chunk.css.map": "/static/css/main.22dcdaa4.chunk.css.map",
+  "index.html": "/index.html",
+  "precache-manifest.9d90bf73cc75fff454fc167a9b144a89.js": "/precache-manifest.9d90bf73cc75fff454fc167a9b144a89.js",
+  "service-worker.js": "/service-worker.js"
 }
