@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/frank/Code/learning/hitched/src/index.css"],"names":[],"mappings":"AAAA,KACE,SAAU,AACV,UAAW,AACX,mCAAoC,AACpC,iCAAmC,CACpC","file":"main.e51b196a.chunk.css","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n"]}
