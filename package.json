@@ -2,7 +2,6 @@
   "name": "hitched",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hitched.kwcay.co",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -12,7 +11,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "build": "react-scripts build",
-    "deploy": "gh-pages --dist build --message \"Deployed to Github pages\"",
+    "deploy": "yarn build && gh-pages --dist build --message \"Deployed to Github pages\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
