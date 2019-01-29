@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
+    "build": "react-scripts build",
     "deploy": "gh-pages --dist build --message \"Deployed to Github pages\"",
     "eject": "react-scripts eject"
   },
