@@ -10,10 +10,10 @@ import * as constants from '../constants';
 
 export default (props: ContextRouter) => (
   <React.Fragment>
-    <Header route={constants.INVITATION_ROUTE} />
+    <Header route={constants.LANDING_ROUTE} />
 
     <MainWrapper>
-      Invitation Page
+      English / Fran&ccedil;ais
     </MainWrapper>
   </React.Fragment>
 );

@@ -7,17 +7,23 @@ import namesSrc from '../assets/JandF.png';
 import dateSrc from '../assets/date.png';
 import lineSrc from '../assets/line.png';
 
-import type { PageType } from '../constants';
+import * as constants from '../constants';
+import type { RouteType } from '../constants';
 
 type Props = {
-  page: PageType,
+  route: RouteType,
 }
 
-export default (props: Props) => {
+export default ({ route }: Props) => {
   return (
     <Wrapper>
-      <MenuLink to="/invitation">Invitation</MenuLink>
-      <MenuLink to="/city">Montreal</MenuLink>
+      <MenuLink current={route === constants.INVITATION_ROUTE ? true : undefined} to={constants.INVITATION_ROUTE}>
+        Invitation
+      </MenuLink>
+
+      <MenuLink current={route === constants.CITY_ROUTE ? true : undefined} to={constants.CITY_ROUTE}>
+        Montreal
+      </MenuLink>
 
       <JayneFrankWrapper>
         <Image height="50px" image={namesSrc} />
@@ -25,22 +31,33 @@ export default (props: Props) => {
         <Image height="2px" image={lineSrc} />
       </JayneFrankWrapper>
 
-      <MenuLink to="/photos">Photos</MenuLink>
-      <MenuLink to="/facts">Fun Facts</MenuLink>
+      <MenuLink current={route === constants.PHOTOS_ROUTE ? true : undefined} to={constants.PHOTOS_ROUTE}>
+        Photos
+      </MenuLink>
+
+      <MenuLink current={route === constants.FACTS_ROUTE ? true : undefined} to={constants.FACTS_ROUTE}>
+        Fun Facts
+      </MenuLink>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.header`
   background-color: white;
-  padding: 2vw;
+  box-sizing: border-box;
+  margin: 0px auto;
+  padding: 1vw;
+  width: 100%;
+  max-width: 1100px;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
 `;
 
 const MenuLink = styled(Link)`
+  color: ${props => (props.current ? constants.ACTIVE_COLOUR : constants.ANCHOR_COLOUR)};
+  padding: 1vw 2vw;
   text-transform: uppercase;
 `;
 
@@ -56,6 +73,6 @@ const Image = styled.div`
   background: transparent center center no-repeat url('${props => props.image}');
   background-size: contain;
   height: ${props => props.height};
-  margin: 10px auto;
+  margin: 0.5vw auto;
   width: 100%;
 `;
