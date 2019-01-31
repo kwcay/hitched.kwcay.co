@@ -8,6 +8,11 @@
 export const ACTIVE_COLOUR = '#d6ae71';
 export const ANCHOR_COLOUR = '#0b1f03';
 
+// Device widths
+export const DEVICE_WIDTH_PHONE = '580px';
+export const DEVICE_WIDTH_TABLET = '770px';
+export const DEVICE_WIDTH_DESKTOP = '1000px';
+
 // Route constants
 export const CITY_ROUTE = '/city';
 export const FACTS_ROUTE = '/facts';
