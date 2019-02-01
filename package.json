@@ -28,6 +28,7 @@
   ],
   "devDependencies": {
     "env-cmd": "^8.0.2",
+    "flow-bin": "^0.92.0",
     "gh-pages": "^2.0.1"
   }
 }
