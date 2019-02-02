@@ -15,27 +15,36 @@ type Props = {
 }
 
 export default ({ route }: Props) => {
+  const linkProps = {};
+
+  for (const linkRoute of constants.ROUTES) {
+    linkProps[linkRoute] = {
+      route: linkRoute,
+      current: route === linkRoute,
+    }
+  }
+
   return (
     <Wrapper>
-      <Link current={route === constants.INVITATION_ROUTE ? true : undefined} to={constants.INVITATION_ROUTE}>
+      <Link {...linkProps[constants.INVITATION_ROUTE]}>
         Invitation
       </Link>
 
-      <Link current={route === constants.CITY_ROUTE ? true : undefined} to={constants.CITY_ROUTE}>
+      <Link {...linkProps[constants.CITY_ROUTE]}>
         Montreal
       </Link>
 
       <JayneFrankWrapper>
         <Image height="50px" image={namesSrc} />
         <Image height="20px" image={dateSrc} />
-        <Image height="2px" image={lineSrc} />
+        <Line src={lineSrc} />
       </JayneFrankWrapper>
 
-      <Link current={route === constants.PHOTOS_ROUTE ? true : undefined} to={constants.PHOTOS_ROUTE}>
+      <Link {...linkProps[constants.PHOTOS_ROUTE]}>
         Photos
       </Link>
 
-      <Link current={route === constants.FACTS_ROUTE ? true : undefined} to={constants.FACTS_ROUTE}>
+      <Link {...linkProps[constants.FACTS_ROUTE]}>
         Fun Facts
       </Link>
 
@@ -62,8 +71,14 @@ const Wrapper = styled.header`
   }
 `;
 
-const Link = styled(RouterLink)`
-  color: ${props => (props.current ? constants.ACTIVE_COLOUR : constants.ANCHOR_COLOUR)};
+const Link = ({ children, current, route }) => {
+  return current
+    ? <ActiveLink to={route}>{children}</ActiveLink>
+    : <InactiveLink to={route}>{children}</InactiveLink>;
+};
+
+const InactiveLink = styled(RouterLink)`
+  color: ${constants.TEXT_COLOUR};
   display: none;
   padding: 1vw 2vw;
   text-transform: uppercase;
@@ -73,11 +88,16 @@ const Link = styled(RouterLink)`
   }
 `;
 
+const ActiveLink = styled(InactiveLink)`
+  color: ${constants.ACTIVE_COLOUR};
+`;
+
 // Jayne & Frank
 const JayneFrankWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 300px;
 `;
 
@@ -87,6 +107,12 @@ const Image = styled.div`
   height: ${props => props.height};
   margin: 0.5vw auto;
   width: 100%;
+`;
+
+const Line = styled.img`
+  height: 1px;
+  width: 10%;
+  margin: 0.5vw auto;
 `;
 
 // Hamburger menu for mobile

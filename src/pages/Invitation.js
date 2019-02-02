@@ -10,28 +10,38 @@ import MainWrapper from '../components/MainWrapper';
 
 import * as constants from '../constants';
 
-export default (props: ContextRouter) => (
-  <React.Fragment>
-    <Header route={constants.INVITATION_ROUTE} />
+type State = {
+  isFetching: bool,
+}
 
-    <MainWrapper>
-      <Container>
-        <Frame>
-          <Body>
-            <Label>
-              Entrez votre code pour voir votre invitation
-            </Label>
+export default class InvitationPage extends React.Component<ContextRouter, State> {
+  state = {
+    isFetching: false,
+  }
 
-            <div>
-              <Input type="text" />
-              <Submit type="submit" value=">" />
-            </div>
-          </Body>
-        </Frame>
-      </Container>
-    </MainWrapper>
-  </React.Fragment>
-);
+  render = () => (
+    <React.Fragment>
+      <Header route={constants.INVITATION_ROUTE} />
+
+      <MainWrapper>
+        <Container>
+          <Frame>
+            <Body>
+              <Label>
+                Entrez votre code pour voir votre invitation
+              </Label>
+
+              <InputContainer>
+                <Input type="text" required autoFocus />
+                <Submit type="submit" value=">" />
+              </InputContainer>
+            </Body>
+          </Frame>
+        </Container>
+      </MainWrapper>
+    </React.Fragment>
+  );
+}
 
 const Container = styled.div`
   max-width: 600px;
@@ -51,6 +61,11 @@ const Label = styled.div`
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 15px;
+`;
+
+const InputContainer = styled.form`
+  display: flex;
+  align-items: center;
 `;
 
 const inputHeight = '40px';
@@ -75,6 +90,4 @@ const Submit = styled(Input)`
   font-size: 1.4em;
   line-height: ${inputHeight};
   width: ${inputHeight};
-  position: relative;
-  top: 2px;
 `;

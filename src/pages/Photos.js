@@ -13,7 +13,7 @@ export default (props: ContextRouter) => (
     <Header route={constants.PHOTOS_ROUTE} />
 
     <MainWrapper>
-      Photos Page
+
     </MainWrapper>
   </React.Fragment>
 );

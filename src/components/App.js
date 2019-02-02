@@ -3,13 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import * as constants from '../constants';
 import CityPage from '../pages/City';
 import FactsPage from '../pages/Facts';
 import InvitationPage from '../pages/Invitation';
 import LandingPage from '../pages/Landing';
 import PhotosPage from '../pages/Photos';
-
-import * as constants from '../constants';
 
 export default class App extends React.Component {
   render = () => {
@@ -28,7 +27,7 @@ export default class App extends React.Component {
 }
 
 const Wrapper = styled.div`
-  color: white;
+  color: ${constants.TEXT_COLOUR};
   display: flex;
   flex-direction: column;
   height: 100%;
