@@ -50,6 +50,4 @@ const Footer = styled.footer`
   }
 `;
 
-const FooterLink = styled.a`
-  text-decoration: underline;
-`;
+const FooterLink = styled.a``;
