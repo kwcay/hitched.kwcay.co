@@ -22,15 +22,15 @@ export default class Frame extends React.Component<Props> {
   }
 
   render = () => (
-    <Wrapper>
+    <FrameDiv>
       <Contents>
         {this.props.children}
       </Contents>
-    </Wrapper>
+    </FrameDiv>
   )
 }
 
-const Wrapper = styled.div`
+const FrameDiv = styled.div`
   background: transparent center center no-repeat url('${framePhoneSrc}');
   background-size: contain;
   padding-top: 64%; // Maintains the aspect ratio of the frame.

@@ -19,7 +19,9 @@ const Background = styled.main`
 `;
 
 const Body = styled.div`
+  box-sizing: border-box;
   margin: 0px auto;
   max-width: 1200px;
-  padding: 10vw;
+  padding: 5vw;
+  width: 90vw;
 `;
