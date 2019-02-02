@@ -2,7 +2,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import frameSrc from '../assets/frame.png';
+import framePhoneSrc from '../assets/frame.phone.png';
+import frameTabletSrc from '../assets/frame.tablet.png';
+import frameDesktopSrc from '../assets/frame.desktop.png';
+
+import * as constants from '../constants';
 
 type Props = {
   width: number,
@@ -18,18 +22,34 @@ export default class Frame extends React.Component<Props> {
   }
 
   render = () => (
-    <Wrapper width={this.props.width} units={this.props.widthUnit}>
-      {this.props.children}
+    <Wrapper>
+      <Contents>
+        {this.props.children}
+      </Contents>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  background: transparent center center no-repeat url('${frameSrc}');
+  background: transparent center center no-repeat url('${framePhoneSrc}');
   background-size: contain;
-  box-sizing: border-box;
-  width: ${props => `${props.width}${props.units}`};
-  height: ${props => `${props.width*0.75}${props.units}`};
-  margin: 0px auto;
-  padding: 10% 5%;
+  padding-top: 64%; // Maintains the aspect ratio of the frame.
+  position: relative;
+  width: 100%;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+    background-image: url('${frameTabletSrc}');
+  }
+
+  @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
+    background-image: url('${frameDesktopSrc}');
+  }
+`;
+
+const Contents = styled.div`
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  bottom: 7%;
+  right: 5%;
 `;
