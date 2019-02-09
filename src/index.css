@@ -16,13 +16,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 a {
   color: #0b1f03;
+  outline: none;
   text-decoration: none;
   transition: 0.2s color;
 }
 a:hover, a:active {
   color: #d6ae71
 }
+button {
+  outline: none;
+}
 input,
 textarea {
   font: 16px/1.618 'Lato', sans-serif;
+  outline: none;
 }

@@ -59,6 +59,7 @@ const Wrapper = styled.header`
   margin: 0px auto;
   padding: 2.5vw;
   width: 100%;
+  min-height: 9rem;
   max-width: 1100px;
 
   display: flex;
