@@ -13,6 +13,22 @@ export const DEVICE_WIDTH_PHONE = '580px';
 export const DEVICE_WIDTH_TABLET = '770px';
 export const DEVICE_WIDTH_DESKTOP = '1000px';
 
+// Invitations
+export type InvitationGuestType = {
+  name: string,
+  email: string,
+  address: string,
+  isAttendingCeremony: string,
+  isAttendingReception: string,
+}
+
+export type InvitationType = {
+  code: string,
+  hasCeremonyInvitation: bool,
+  hasReceptionInvitation: bool,
+  guests: InvitationGuestType[],
+}
+
 // Route constants
 export const CITY_ROUTE = '/city';
 export const FACTS_ROUTE = '/facts';
@@ -34,3 +50,12 @@ export type RouteType =
   typeof INVITATION_ROUTE |
   typeof PHOTOS_ROUTE |
   typeof LANDING_ROUTE;
+
+// Translations
+export const LANG_EN = 'en';
+export const LANG_FR = 'fr';
+export type LanguageType = LANG_EN | LANG_FR;
+export const SUPPORTED_LANGUAGES: Map<LanguageType, string> = new Map([
+  [LANG_EN, 'English'],
+  [LANG_FR, 'Français'],
+]);
