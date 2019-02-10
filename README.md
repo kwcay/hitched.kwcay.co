@@ -1,9 +1,22 @@
 # #hitched
 
-Run locally using:
+## Quickstart
 
-    yarn start
+```shell
+# Run locally
+yarn start
 
-Deploy changes using:
+# Deploy to Github Pages
+yarn deploy
+```
 
-    yarn deploy
+# Initial setup
+
+Create the local and production environment files:
+
+```shell
+cp ./.env.sample ./.env
+cp ./.env.sample ./.env.production
+```
+
+Make sure the local API points to `http://localhost:8080` and the production one points to the right place.

@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
 import namesSrc from '../assets/JandF.png';
@@ -16,6 +17,7 @@ type Props = {
 
 export default ({ route }: Props) => {
   const linkProps = {};
+  const { t } = useTranslation();
 
   for (const linkRoute of constants.ROUTES) {
     linkProps[linkRoute] = {
@@ -27,11 +29,11 @@ export default ({ route }: Props) => {
   return (
     <Wrapper>
       <Link {...linkProps[constants.INVITATION_ROUTE]}>
-        Invitation
+        {t('invitation.title')}
       </Link>
 
       <Link {...linkProps[constants.CITY_ROUTE]}>
-        Montreal
+        {t('city.title')}
       </Link>
 
       <JayneFrankWrapper>
@@ -45,7 +47,7 @@ export default ({ route }: Props) => {
       </Link>
 
       <Link {...linkProps[constants.FACTS_ROUTE]}>
-        Fun Facts
+        {t('facts.title')}
       </Link>
 
       <MobileMenu />
@@ -82,7 +84,9 @@ const InactiveLink = styled(RouterLink)`
   color: ${constants.TEXT_COLOUR};
   display: none;
   padding: 1vw 2vw;
+  text-align: center;
   text-transform: uppercase;
+  width: 10rem;
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
     display: inline-block;
