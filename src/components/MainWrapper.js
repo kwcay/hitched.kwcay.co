@@ -7,6 +7,8 @@ import backgroundSrc from '../assets/background.jpg';
 
 export default ({ children }) => (
   <Background>
+    <Shade />
+
     <Body>
       {children}
     </Body>
@@ -34,7 +36,16 @@ const Body = styled.main`
   margin: 0px auto;
   max-width: 1200px;
   padding: 5vw;
+  position: relative;
   width: 90vw;
+`;
+
+const Shade = styled.div`
+  background-color: pink;
+  display: block;
+  height: 30px;
+  width: 100%;
+  position: absolute;
 `;
 
 const Footer = styled.footer`
