@@ -28,27 +28,29 @@ const MainWrapper = ({ children, showHeaderFooter }: Props) => {
 
   return (
     <Background>
-      {showHeaderFooter && (
-        <Shadow />
-      )}
+      <BackgroundFilm>
+        {showHeaderFooter && (
+          <Shadow />
+        )}
 
-      <Body>
-        {children}
-      </Body>
+        <Body>
+          {children}
+        </Body>
 
-      {showHeaderFooter && (
-        <Footer>
-          <FooterLink href="https://kwcay.co" target="_blank">
-            &copy;2019 Kwahu &amp; Cayes
-          </FooterLink>
+        {showHeaderFooter && (
+          <Footer>
+            <FooterLink href="https://kwcay.co" target="_blank">
+              &copy;2019 Kwahu &amp; Cayes
+            </FooterLink>
 
-          &bull;
+            &bull;
 
-          <FooterLink onClick={setLanguage}>
-            {constants.SUPPORTED_LANGUAGES.get(nextLanguageCode)}
-          </FooterLink>
-        </Footer>
-      )}
+            <FooterLink onClick={setLanguage}>
+              {constants.SUPPORTED_LANGUAGES.get(nextLanguageCode)}
+            </FooterLink>
+          </Footer>
+        )}
+      </BackgroundFilm>
     </Background>
   );
 }
@@ -67,6 +69,10 @@ const Background = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
+`;
+
+const BackgroundFilm = styled.div`
+  background-color: rgba(0, 0, 0, 0.2);
 `;
 
 const Shadow = styled.div`

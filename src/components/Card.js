@@ -65,7 +65,7 @@ export const CardColumn = styled.div`
     padding: 3%;
     width: 44%;
 
-    &:last-child {
+    & ~ & {
       &:before {
         background: ${constants.ACTIVE_COLOUR} center center no-repeat url('${lineSrc}');
         content: " ";
