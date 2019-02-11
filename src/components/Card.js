@@ -12,7 +12,7 @@ type Props = {
   children: React$Node,
 }
 
-export default ({ children }) => (
+export default ({ children }: Props) => (
   <Texture>
     <Contents>
       {children}

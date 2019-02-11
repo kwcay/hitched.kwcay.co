@@ -10,7 +10,8 @@ import { useTranslation } from 'react-i18next';
 import Frame from './Frame';
 
 type Props = {
-
+  isLoading: bool,
+  onSubmit: (code: string) => void,
 }
 
 export default (props: Props) => {
@@ -24,9 +25,18 @@ export default (props: Props) => {
             {t('invitation.enterCode')}
           </Label>
 
-          <InputContainer>
-            <Input type="text" required autoFocus />
-            <Submit type="submit" value=">" />
+          <InputContainer onSubmit={props.onSubmit}>
+            <Input
+              name="code"
+              type="text"
+              disabled={props.isLoading}
+              required
+              autoFocus
+            />
+
+            {!props.isLoading && (
+              <Submit type="submit" value=">" />
+            )}
           </InputContainer>
         </Body>
       </Frame>
@@ -76,6 +86,10 @@ const Input = styled.input`
   padding: 0px;
   width: 300px;
   height: ${inputHeight};
+
+  &:disabled {
+    color: gray;
+  }
 `;
 
 const Submit = styled(Input)`

@@ -1,8 +1,11 @@
 /**
+ * General constants.
+ *
  * @flow
- *
- *
  */
+
+// API
+export const API_HOST = process.env.REACT_APP_API_HOST;
 
 // Colours
 export const ACTIVE_COLOUR = '#d6ae71';
@@ -29,7 +32,7 @@ export type InvitationType = {
   guests: InvitationGuestType[],
 }
 
-// Route constants
+// Routes
 export const CITY_ROUTE = '/city';
 export const FACTS_ROUTE = '/facts';
 export const INVITATION_ROUTE = '/invitation';

@@ -13,7 +13,7 @@ class Store {
   /**
    * Deserializes an object from the store.
    */
-  getObject = (key: string, defaultObject?: Object): ?Object => {
+  unserilize = (key: string, defaultObject?: Object): ?Object => {
     const obj = localStorage.getItem(key);
 
     return obj ? JSON.parse(obj) : defaultObject;
@@ -22,17 +22,17 @@ class Store {
   /**
    * Serializes an object to the store.
    */
-  setObject = (key: string, obj: Object) => localStorage.setItem(key, JSON.stringify(obj))
+  serialize = (key: string, obj: Object) => localStorage.setItem(key, JSON.stringify(obj))
 
   /**
    * Retrieves invitation details from local storage if it exists.
    */
-  getInvitation = (): ?InvitationType => this.getObject(INVITATION_KEY)
+  getInvitation = (): ?InvitationType => this.unserilize(INVITATION_KEY)
 
   /**
    * Stores the invitation details to local storage.
    */
-  setInvitation = (invite: InvitationType) => localStorage.setItem(INVITATION_KEY, invite)
+  setInvitation = (invite: InvitationType) => this.serialize(INVITATION_KEY, invite)
 
   /**
    * Retrieves the user-defined language.

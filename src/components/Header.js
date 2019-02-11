@@ -62,7 +62,7 @@ const Wrapper = styled.header`
   padding: 2.5vw;
   width: 100%;
   min-height: 9rem;
-  max-width: 1100px;
+  max-width: 1200px;
 
   display: flex;
   justify-content: center;
