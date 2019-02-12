@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import lineSrc from '../assets/line.png';
 import * as constants from '../constants';
@@ -120,5 +120,5 @@ export const CardSubTitle = styled.span`
 
 export const CardText = styled.p`
   margin: 0px;
-  text-align: left;
+  text-align: ${props => props.textAlign || 'left'};
 `;

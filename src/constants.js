@@ -10,6 +10,7 @@ export const API_HOST = process.env.REACT_APP_API_HOST;
 // Colours
 export const ACTIVE_COLOUR = '#d6ae71';
 export const TEXT_COLOUR = '#0b1f03';
+export const TRANSITION_TIME = '300ms';
 
 // Device widths
 export const DEVICE_WIDTH_PHONE = '580px';

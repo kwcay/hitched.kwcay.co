@@ -5,7 +5,8 @@
  */
 import * as React from 'react';
 import styled from 'styled-components';
-
+import { useTranslation } from 'react-i18next';
+import GuestAttendance from './GuestAttendance';
 import Card, {
   CardColumn,
   CardTitle as Title,
@@ -20,22 +21,43 @@ type Props = {
 }
 
 export default ({ invite }: Props) => {
-  console.log(invite)
+  const { t } = useTranslation();
 
   return (
-    <Card>
-      <Wrapper>
-        <CardColumnWrapper>
+    <React.Fragment>
+      <CardWrapper>
+        <Card>
           <CardColumn>
-            <Title>Ceremony &amp; Cocktail</Title>
-            <Text>SEPTEMBER 7, 2019</Text>
-            <Text>CEREMONY &amp; COCKTAIL</Text>
-            <Text>19:00 - 21:00</Text>
-          </CardColumn>
-        </CardColumnWrapper>
+            <Title>{t('invitation.ceremony')}</Title>
 
-        <CardColumnWrapper>
-          {invite.hasReceptionInvite && (
+            <Text textAlign="center">
+              {t('invitation.ceremonyDate').toUpperCase()}
+            </Text>
+
+            <Text textAlign="center">
+              {t('invitation.ceremonyCocktail').toUpperCase()}
+            </Text>
+
+            <br />
+            <Text textAlign="center">18H00 - 20H00</Text>
+            <Text textAlign="center">{t('invitation.doorsOpenAt')}</Text>
+
+            <br />
+            <Text textAlign="center">12099 Camille-Tessier</Text>
+            <Text textAlign="center">Montreal, QC H1E 6A2</Text>
+
+            <Rsvp />
+
+            {invite.guests.map(({ name, isAttendingCeremony }) => (
+              <GuestAttendance name={name} isAttending={isAttendingCeremony} />
+            ))}
+          </CardColumn>
+        </Card>
+      </CardWrapper>
+
+      {invite.hasReceptionInvite && (
+        <CardWrapper>
+          <Card>
             <CardColumn>
               <Title>Reception</Title>
               <SubTitle>Hotel Royal Versailles</SubTitle>
@@ -63,19 +85,26 @@ export default ({ invite }: Props) => {
                 Toussaint.
               </Text>
             </CardColumn>
-          )}
-        </CardColumnWrapper>
-      </Wrapper>
-    </Card>
+          </Card>
+        </CardWrapper>
+      )}
+    </React.Fragment>
   );
 };
 
 // Supporting components
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
+const CardWrapper = styled.div`
+  margin: auto;
+  max-width: 480px;
+`;
+const RsvpText = styled.div`
+  text-align: left;
+  text-decoration: underline;
+  margin-top: 10px;
 `;
 
-const CardColumnWrapper = styled.div`
-  flex-grow: 1;
-`;
+const Rsvp = () => (
+  <RsvpText>
+    RSVP
+  </RsvpText>
+);
