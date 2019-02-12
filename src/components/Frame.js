@@ -9,26 +9,25 @@ import frameDesktopSrc from '../assets/frame.desktop.png';
 import * as constants from '../constants';
 
 type Props = {
-  width: number,
-  widthUnit: string,
+  display?: string,
+  width?: number,
+  widthUnit?: string,
   children: React$Node,
 }
 
-export default class Frame extends React.Component<Props> {
-  static defaultProps = {
-    width: 80,
-    widthUnit: 'vw',
-    children: null,
-  }
+const Frame = ({ children, width, widthUnit }: Props) => (
+  <FrameDiv width={width} widthUnit={widthUnit}>
+    <Contents>
+      {children}
+    </Contents>
+  </FrameDiv>
+);
 
-  render = () => (
-    <FrameDiv>
-      <Contents>
-        {this.props.children}
-      </Contents>
-    </FrameDiv>
-  )
-}
+Frame.defaultProps = {
+  width: 80,
+  widthUnit: 'vw',
+  children: null,
+};
 
 const FrameDiv = styled.div`
   background: transparent center center no-repeat url('${framePhoneSrc}');
@@ -53,3 +52,5 @@ const Contents = styled.div`
   bottom: 7%;
   right: 5%;
 `;
+
+export default Frame;

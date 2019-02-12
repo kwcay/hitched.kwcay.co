@@ -57,6 +57,7 @@ const Contents = styled.div`
 `;
 
 export const CardColumn = styled.div`
+  flex-grow: 1;
   padding: 5%;
   position: relative;
   width: 90%;

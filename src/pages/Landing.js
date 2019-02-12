@@ -6,7 +6,9 @@ import { useTranslation } from 'react-i18next';
 import type { ContextRouter } from 'react-router-dom';
 
 import store from '../store';
+import Frame from '../components/Frame';
 import * as constants from '../constants';
+import JayneFrank from '../components/JayneFrank';
 import MainWrapper from '../components/MainWrapper';
 
 export default (props: ContextRouter) => {
@@ -15,7 +17,7 @@ export default (props: ContextRouter) => {
   constants.SUPPORTED_LANGUAGES.forEach((name, code) => languages.push({ code, name }));
 
   // Language change handler.
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const setLanguage = ({ target }: Object) => {
     const { code } = target.dataset;
 
@@ -30,43 +32,65 @@ export default (props: ContextRouter) => {
   return (
     <React.Fragment>
       <MainWrapper showHeaderFooter={false}>
-        <Selector>
-          {languages.map(({ code, name }) => (
-            <Button key={code} data-code={code} onClick={setLanguage}>
-              {name}
-            </Button>
-          ))}
-        </Selector>
+        <FrameWrapper>
+          <Frame>
+            <Wrapper>
+              <JayneFrank />
+
+              <Selector>
+                {languages.map(({ code }) => (
+                  <LangButton key={code} data-code={code} onClick={setLanguage}>
+                    {t('general.enterSite', { lng: code })}
+                  </LangButton>
+                ))}
+              </Selector>
+            </Wrapper>
+          </Frame>
+        </FrameWrapper>
       </MainWrapper>
     </React.Fragment>
   );
 }
 
 // Supporting components
-const Selector = styled.div`
+const FrameWrapper = styled.div`
+  display: flex;
+  align-items: center;
   height: 100%;
+  margin: auto;
+  max-width: 550px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+`;
+
+const Selector = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
 `;
 
-const Button = styled.button`
+const LangButton = styled.button`
   background-color: transparent;
-  border: 2px solid transparent;
-  color: ${constants.ACTIVE_COLOUR};
+  border: none;
+  color: white;
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+
   height: 5rem;
-  min-width: 200px;
-  transition: background-color 300ms, border-color 300ms;
+  min-width: 170px;
+  transition: color 300ms;
 
-  &:hover {
-    border-bottom-color: ${constants.ACTIVE_COLOUR};
-  }
-
-  &:active {
-    background-color: ${constants.ACTIVE_COLOUR};
-    border-color: ${constants.ACTIVE_COLOUR};
+  &:active, &:hover {
+    color: ${constants.ACTIVE_COLOUR};
   }
 `;

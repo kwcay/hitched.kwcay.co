@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
 import store from '../store';
@@ -12,7 +12,7 @@ type Props = {
   showHeaderFooter: bool,
 }
 
-const MainWrapper = ({ children, showHeaderFooter }: Props) => {
+const MainWrapper = ({ children, maxWidth, showHeaderFooter }: Props) => {
   const { i18n } = useTranslation();
   const { language: currentLanguageCode } = i18n;
   const nextLanguageCode = currentLanguageCode === constants.LANG_EN
@@ -33,23 +33,31 @@ const MainWrapper = ({ children, showHeaderFooter }: Props) => {
           <Shadow />
         )}
 
-        <Body>
-          {children}
-        </Body>
+        <Scrollable>
+          <Body>
+            {children}
+          </Body>
 
-        {showHeaderFooter && (
-          <Footer>
-            <FooterLink href="https://kwcay.co" target="_blank">
-              &copy;2019 Kwahu &amp; Cayes
-            </FooterLink>
+          {showHeaderFooter && (
+            <Footer>
+              <FooterLink href="https://kwcay.co" target="_blank">
+                &copy;2019 Kwahu &amp; Cayes
+              </FooterLink>
 
-            &bull;
+              <FooterSeparator>|</FooterSeparator>
 
-            <FooterLink onClick={setLanguage}>
-              {constants.SUPPORTED_LANGUAGES.get(nextLanguageCode)}
-            </FooterLink>
-          </Footer>
-        )}
+              <FooterLink href="mailto:hitched@kwcay.co" target="_blank" gold>
+                hitched@kwcay.co
+              </FooterLink>
+
+              <FooterSeparator>|</FooterSeparator>
+
+              <FooterLink onClick={setLanguage}>
+                {constants.SUPPORTED_LANGUAGES.get(nextLanguageCode)}
+              </FooterLink>
+            </Footer>
+          )}
+        </Scrollable>
       </BackgroundFilm>
     </Background>
   );
@@ -57,22 +65,22 @@ const MainWrapper = ({ children, showHeaderFooter }: Props) => {
 
 MainWrapper.defaultProps = {
   children: [],
+  maxWidth: null,
   showHeaderFooter: true,
 };
 
 const Background = styled.div`
   background: transparent center center no-repeat url('${backgroundSrc}');
   background-size: cover;
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  overflow-y: scroll;
-  overflow-x: hidden;
   position: relative;
 `;
 
 const BackgroundFilm = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 const Shadow = styled.div`
@@ -82,6 +90,14 @@ const Shadow = styled.div`
   height: 0.8rem;
   width: 100%;
   z-index: 1;
+`;
+
+const Scrollable = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 const Body = styled.main`
@@ -94,21 +110,27 @@ const Body = styled.main`
 `;
 
 const Footer = styled.footer`
-  // box-sizing: border-box;
   background-color: white;
+  display: flex;
+  justify-content: center;
   font-size: 0.8rem;
   text-align: center;
-  padding: 30px;
-  // width: 100vw;
-
-  @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
-    padding: 40px;
-  }
+  height: 6rem;
+  width: 100%;
 `;
 
 const FooterLink = styled.a`
   cursor: pointer;
-  margin: auto 0.7rem;
+  margin: auto 0.2rem;
+
+  ${props => props.gold && css`
+    color: ${constants.ACTIVE_COLOUR};
+  `}
+`;
+
+const FooterSeparator = styled.span`
+  display: inline-block;
+  margin: auto 0.2rem;
 `;
 
 export default MainWrapper;

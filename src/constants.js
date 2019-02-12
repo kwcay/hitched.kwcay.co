@@ -59,6 +59,6 @@ export const LANG_EN = 'en';
 export const LANG_FR = 'fr';
 export type LanguageType = LANG_EN | LANG_FR;
 export const SUPPORTED_LANGUAGES: Map<LanguageType, string> = new Map([
-  [LANG_EN, 'English'],
   [LANG_FR, 'Français'],
+  [LANG_EN, 'English'],
 ]);

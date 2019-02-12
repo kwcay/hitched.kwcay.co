@@ -4,10 +4,8 @@ import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
-import namesSrc from '../assets/JandF.png';
-import dateSrc from '../assets/date.png';
+import JayneFrank from './JayneFrank';
 import lineSrc from '../assets/line.png';
-
 import * as constants from '../constants';
 import type { RouteType } from '../constants';
 
@@ -36,11 +34,7 @@ export default ({ route }: Props) => {
         {t('city.title')}
       </Link>
 
-      <JayneFrankWrapper>
-        <Image height="50px" image={namesSrc} />
-        <Image height="20px" image={dateSrc} />
-        <Line src={lineSrc} />
-      </JayneFrankWrapper>
+      <JayneFrank />
 
       <Link {...linkProps[constants.PHOTOS_ROUTE]}>
         Photos
@@ -95,29 +89,6 @@ const InactiveLink = styled(RouterLink)`
 
 const ActiveLink = styled(InactiveLink)`
   color: ${constants.ACTIVE_COLOUR};
-`;
-
-// Jayne & Frank
-const JayneFrankWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-`;
-
-const Image = styled.div`
-  background: transparent center center no-repeat url('${props => props.image}');
-  background-size: contain;
-  height: ${props => props.height};
-  margin: 0.5vw auto;
-  width: 100%;
-`;
-
-const Line = styled.img`
-  height: 1px;
-  width: 10%;
-  margin: 0.5vw auto;
 `;
 
 // Hamburger menu for mobile
