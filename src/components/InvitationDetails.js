@@ -24,7 +24,7 @@ export default ({ invite }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <React.Fragment>
+    <Details>
       <CardWrapper>
         <Card>
           <CardColumn>
@@ -40,7 +40,7 @@ export default ({ invite }: Props) => {
 
             <br />
             <Text textAlign="center">18H00 - 20H00</Text>
-            <Text textAlign="center">{t('invitation.doorsOpenAt')}</Text>
+            <Text textAlign="center">{t('invitation.ceremonyDoorsOpenAt')}</Text>
 
             <br />
             <Text textAlign="center">12099 Camille-Tessier</Text>
@@ -59,42 +59,48 @@ export default ({ invite }: Props) => {
         <CardWrapper>
           <Card>
             <CardColumn>
-              <Title>Reception</Title>
-              <SubTitle>Hotel Royal Versailles</SubTitle>
-              <SubTitle>Ceremony &amp;s Cocktail</SubTitle>
-              <SubTitle>7:00 P - 9:00 PM</SubTitle>
+              <Title>{t('invitation.reception')}</Title>
 
-              <Title>Where to eat</Title>
-
-              <SubTitle>Fourchette Antillaise</SubTitle>
-              <Text>
-                Frank&apos;s pick for the best Haitian food in town. They have
-                amazing corrossol juices and of course Kola Couronne.
+              <Text textAlign="center">
+                {t('invitation.receptionDate').toUpperCase()}
               </Text>
 
-              <SubTitle>Le Nil Bleu</SubTitle>
-              <Text>
-                The best Ethiopian culinary experience in Montreal. One of
-                Jayne&apos;s favourite date started there.
+              <Text textAlign="center">
+                {t('invitation.dayParty').toUpperCase()}
               </Text>
 
-              <SubTitle>Agrikol</SubTitle>
-              <Text>
-                If you want great vibes and great food this is the place. But
-                what&apos;s best about this place is the new Head Chef, Paul
-                Toussaint.
-              </Text>
+              <br />
+              <Text textAlign="center">13H00 - 19H00</Text>
+              <Text textAlign="center">{t('invitation.receptionDoorsOpenAt')}</Text>
+
+              <br />
+              <Text textAlign="center">La Scena - Quai Jacques-Cartier</Text>
+              <Text textAlign="center">Montreal, QC H2Y 4B2</Text>
+
+              <Rsvp />
+
+              {invite.guests.map(({ name, isAttendingCeremony }) => (
+                <GuestAttendance name={name} isAttending={isAttendingCeremony} />
+              ))}
             </CardColumn>
           </Card>
         </CardWrapper>
       )}
-    </React.Fragment>
+    </Details>
   );
 };
 
 // Supporting components
+const Details = styled.div`
+  display: flex;
+  align-items: top;
+  flex-wrap: wrap;
+`;
+
 const CardWrapper = styled.div`
-  margin: auto;
+  flex-grow: 1;
+  margin: 0 auto 30px auto;
+  min-width: 480px;
   max-width: 480px;
 `;
 const RsvpText = styled.div`

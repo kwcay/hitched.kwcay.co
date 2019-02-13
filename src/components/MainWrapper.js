@@ -9,10 +9,12 @@ import backgroundSrc from '../assets/background.jpg';
 
 type Props = {
   children: React.ReactNode,
-  showHeaderFooter: bool,
+  message?: string,
+  showHeaderFooter?: bool,
+  title?: string,
 }
 
-const MainWrapper = ({ children, maxWidth, showHeaderFooter }: Props) => {
+const MainWrapper = ({ children, message, title, showHeaderFooter }: Props) => {
   const { i18n } = useTranslation();
   const { language: currentLanguageCode } = i18n;
   const nextLanguageCode = currentLanguageCode === constants.LANG_EN
@@ -35,6 +37,9 @@ const MainWrapper = ({ children, maxWidth, showHeaderFooter }: Props) => {
 
         <Scrollable>
           <Body>
+            {title && (<BodyTitle>{title}</BodyTitle>)}
+            {message && (<BodyMessage>{message}</BodyMessage>)}
+
             {children}
           </Body>
 
@@ -62,12 +67,6 @@ const MainWrapper = ({ children, maxWidth, showHeaderFooter }: Props) => {
     </Background>
   );
 }
-
-MainWrapper.defaultProps = {
-  children: [],
-  maxWidth: null,
-  showHeaderFooter: true,
-};
 
 const Background = styled.div`
   background: transparent center center no-repeat url('${backgroundSrc}');
@@ -101,12 +100,27 @@ const Scrollable = styled.div`
 `;
 
 const Body = styled.main`
+  box-sizing: border-box;
   flex-grow: 1;
   margin: 0px auto;
   max-width: 1200px;
-  padding: 5vw;
+  padding: 2rem;
   position: relative;
-  width: 90vw;
+  width: 100%;
+`;
+
+const BodyTitle = styled.div`
+  color: white;
+  font-family: 'whitman-display', serif;
+  font-size: 1.7rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: auto auto 2rem auto;
+`;
+
+const BodyMessage = styled(BodyTitle)`
+  text-transform: none;
+  max-width: 700px;
 `;
 
 const Footer = styled.footer`

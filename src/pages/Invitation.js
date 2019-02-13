@@ -10,12 +10,12 @@ import type { ContextRouter } from 'react-router-dom';
 
 import api from '../api';
 import store from '../store';
+import * as utils from '../utils';
+import * as constants from '../constants';
 import Header from '../components/Header';
 import Form from '../components/InvitationCodeForm';
 import MainWrapper from '../components/MainWrapper';
 import Details from '../components/InvitationDetails';
-
-import * as constants from '../constants';
 
 type State = {
   isFetching: bool,
@@ -57,12 +57,18 @@ export default class InvitationPage extends React.Component<ContextRouter, State
 
   render = () => {
     const invite = store.getInvitation();
+    let title, message;
+
+    if (invite) {
+      title = i18next.t('invitation.dearGuests', { guests: utils.guestsToString(invite.guests) });
+      message = i18next.t('invitation.guestsMessage');
+    }
 
     return (
       <React.Fragment>
         <Header route={constants.INVITATION_ROUTE} />
 
-        <MainWrapper>
+        <MainWrapper title={title} message={message}>
           {invite
             ? (<Details invite={invite} />)
             : (<Form isLoading={this.state.isFetching} onSubmit={this.handleFetchInvitation} />)

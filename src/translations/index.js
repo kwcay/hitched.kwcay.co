@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 
 import city from './city';
 import facts from './facts';
+import notes from './notes';
 import store from '../store';
 import general from './general';
 import invitation from './invitation';
@@ -16,6 +17,7 @@ const resources = {
     translation: {
       city: city.fr,
       facts: facts.fr,
+      notes: notes.fr,
       general: general.fr,
       invitation: invitation.fr,
     }
@@ -24,6 +26,7 @@ const resources = {
     translation: {
       city: city.en,
       facts: facts.en,
+      notes: notes.en,
       general: general.en,
       invitation: invitation.en,
     },

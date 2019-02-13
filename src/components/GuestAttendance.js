@@ -5,6 +5,7 @@
  */
 import * as React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import * as constants from '../constants';
 
 type Props = {
@@ -12,13 +13,17 @@ type Props = {
   isAttending: bool,
 }
 
-export default (props: Props) => (
-  <Wrapper>
-    <Name>{props.name}</Name>
-    <Button>Accept</Button>
-    <Button>Decline</Button>
-  </Wrapper>
-);
+export default (props: Props) => {
+  const { t } = useTranslation();
+
+  return (
+    <Wrapper>
+      <Name>{props.name}</Name>
+      <Button>{t('invitation.accept')}</Button>
+      <Button>{t('invitation.decline')}</Button>
+    </Wrapper>
+  );
+}
 
 // Supporting components
 const Wrapper = styled.div`

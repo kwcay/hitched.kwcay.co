@@ -37,7 +37,7 @@ export default ({ route }: Props) => {
       <JayneFrank />
 
       <Link {...linkProps[constants.PHOTOS_ROUTE]}>
-        Photos
+        {t('notes.title')}
       </Link>
 
       <Link {...linkProps[constants.FACTS_ROUTE]}>
