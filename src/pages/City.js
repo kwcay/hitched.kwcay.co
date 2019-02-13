@@ -29,32 +29,69 @@ export default (props: ContextRouter) => {
         <Card>
           <CardColumn>
             <Title>{t('city.whereToStay')}</Title>
-            <SubTitle>Hotel Royal Versailles</SubTitle>
-            <SubTitle>Best Western Hotel Europa</SubTitle>
-            <SubTitle>Airbnb</SubTitle>
+            <SubTitle>
+              <a href={t('city.royalVersaillesUrl')} target="_blank" rel="noopener noreferrer">
+                Hotel Royal Versailles
+              </a>
+            </SubTitle>
+
+            <SubTitle>
+              <a href={t('city.hotelEuropaUrl')} target="_blank" rel="noopener noreferrer">
+                Best Western Hotel Europa
+              </a>
+            </SubTitle>
+            <SubTitle>
+              <a href={t('city.airbnbUrl')} target="_blank" rel="noopener noreferrer">
+                Airbnb
+              </a>
+            </SubTitle>
 
             <Title>{t('city.whereToEat')}</Title>
 
-            <SubTitle>Fourchette Antillaise</SubTitle>
+            <SubTitle>
+              <a href={t('city.fourchetteAntillaiseUrl')} target="_blank" rel="noopener noreferrer">
+                Fourchette Antillaise
+              </a>
+            </SubTitle>
             <Text>{t('city.fourchetteAntillaiseDesc')}</Text>
 
-            <SubTitle>Le Nil Bleu</SubTitle>
+            <SubTitle>
+              <a href={t('city.nilBleuUrl')} target="_blank" rel="noopener noreferrer">
+                Le Nil Bleu
+              </a>
+            </SubTitle>
             <Text>{t('city.nilBleuDesc')}</Text>
 
-            <SubTitle>Agrikol</SubTitle>
+            <SubTitle>
+              <a href={t('city.agrikolUrl')} target="_blank" rel="noopener noreferrer">
+                Agrikol
+              </a>
+            </SubTitle>
             <Text>{t('city.agrikolDesc')}</Text>
           </CardColumn>
 
           <CardColumn>
             <Title>{t('city.whatToDo')}</Title>
 
-            <SubTitle>{t('city.oldPort')}</SubTitle>
+            <SubTitle>
+              <a href={t('city.oldPortUrl')} target="_blank" rel="noopener noreferrer">
+                {t('city.oldPort')}
+              </a>
+            </SubTitle>
             <Text>{t('city.oldPortDesc')}</Text>
 
-            <SubTitle>{t('city.mountRoyal')}</SubTitle>
+            <SubTitle>
+              <a href={t('city.mountRoyalUrl')} target="_blank" rel="noopener noreferrer">
+                {t('city.mountRoyal')}
+              </a>
+            </SubTitle>
             <Text>{t('city.mountRoyalDesc')}</Text>
 
-            <SubTitle>{t('city.botanicalGarden')}</SubTitle>
+            <SubTitle>
+              <a href={t('city.botanicalGardenUrl')} target="_blank" rel="noopener noreferrer">
+                {t('city.botanicalGarden')}
+              </a>
+            </SubTitle>
             <Text>{t('city.botanicalGardenDesc')}</Text>
 
             <Title>Uber</Title>

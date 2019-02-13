@@ -34,7 +34,9 @@ export default ({ route }: Props) => {
         {t('city.title')}
       </Link>
 
-      <JayneFrank />
+      <RouterLink to={constants.INVITATION_ROUTE}>
+        <JayneFrank />
+      </RouterLink>
 
       <Link {...linkProps[constants.TIPS_ROUTE]}>
         {t('tips.title')}

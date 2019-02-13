@@ -98,8 +98,8 @@ const Background = styled.div`
 
 const BackgroundFilm = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
 `;
 
