@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import type { ContextRouter } from 'react-router-dom';
-
+import * as constants from '../constants';
 import Header from '../components/Header';
 import MainWrapper from '../components/MainWrapper';
 import Card, {
@@ -12,75 +12,62 @@ import Card, {
   CardText as Text,
 } from '../components/Card';
 
-import * as constants from '../constants';
+import type { ContextRouter } from 'react-router-dom';
 
-export default (props: ContextRouter) => (
-  <React.Fragment>
-    <Header route={constants.CITY_ROUTE} />
+export default (props: ContextRouter) => {
+  const { t } = useTranslation();
 
-    <MainWrapper>
-      <Card>
-        <CardColumn>
-          <Title>Where to stay</Title>
-          <SubTitle>Hotel Royal Versailles</SubTitle>
-          <SubTitle>Best Western Hotel Europa</SubTitle>
-          <SubTitle>Airbnb</SubTitle>
+  return (
+    <React.Fragment>
+      <Header route={constants.CITY_ROUTE} />
 
-          <Title>Where to eat</Title>
+      <MainWrapper
+        title="city.title"
+        messageLine1="city.messageLine1"
+        messageLine2="city.messageLine2"
+      >
+        <Card>
+          <CardColumn>
+            <Title>{t('city.whereToStay')}</Title>
+            <SubTitle>Hotel Royal Versailles</SubTitle>
+            <SubTitle>Best Western Hotel Europa</SubTitle>
+            <SubTitle>Airbnb</SubTitle>
 
-          <SubTitle>Fourchette Antillaise</SubTitle>
-          <Text>
-            Frank&apos;s pick for the best Haitian food in town. They have
-            amazing corrossol juices and of course Kola Couronne.
-          </Text>
+            <Title>{t('city.whereToEat')}</Title>
 
-          <SubTitle>Le Nil Bleu</SubTitle>
-          <Text>
-            The best Ethiopian culinary experience in Montreal. One of
-            Jayne&apos;s favourite date started there.
-          </Text>
+            <SubTitle>Fourchette Antillaise</SubTitle>
+            <Text>{t('city.fourchetteAntillaiseDesc')}</Text>
 
-          <SubTitle>Agrikol</SubTitle>
-          <Text>
-            If you want great vibes and great food this is the place. But
-            what&apos;s best about this place is the new Head Chef, Paul
-            Toussaint.
-          </Text>
-        </CardColumn>
+            <SubTitle>Le Nil Bleu</SubTitle>
+            <Text>{t('city.nilBleuDesc')}</Text>
 
-        <CardColumn>
-          <Title>What to do</Title>
+            <SubTitle>Agrikol</SubTitle>
+            <Text>{t('city.agrikolDesc')}</Text>
+          </CardColumn>
 
-          <SubTitle>Old Port summer fun</SubTitle>
-          <Text>
-            Go enjoy Montreal&apos;s beautiful scenery at the Old Port and take
-            part in the festivities, food trucks, and zip lining.
-          </Text>
+          <CardColumn>
+            <Title>{t('city.whatToDo')}</Title>
 
-          <SubTitle>Mount-Royal</SubTitle>
-          <Text>
-            To get the best view of the city, you must go on top of Mount-Royal.
-            Daytime is as beautiful as nighttime, but beware of racoons!
-          </Text>
+            <SubTitle>{t('city.oldPort')}</SubTitle>
+            <Text>{t('city.oldPortDesc')}</Text>
 
-          <SubTitle>Botanical Garden</SubTitle>
-          <Text>
-            This is probably Jayne&apos;s favourite place in Montreal. You get
-            to be surrounded by plants and sometimes butterflies.
-          </Text>
+            <SubTitle>{t('city.mountRoyal')}</SubTitle>
+            <Text>{t('city.mountRoyalDesc')}</Text>
 
-          <Title>Uber</Title>
-          <Text>
-            Frank isn&apos;t a fan of Uber, but we still think it might be
-            useful for you. Use the promo code JAYNEM943UE to request a ride.
-            First riders get a free ride.
-            <br />
-            <br />
+            <SubTitle>{t('city.botanicalGarden')}</SubTitle>
+            <Text>{t('city.botanicalGardenDesc')}</Text>
 
-            Also, DON&apos;T DRINK AND DRIVE!
-          </Text>
-        </CardColumn>
-      </Card>
-    </MainWrapper>
-  </React.Fragment>
-);
+            <Title>Uber</Title>
+            <Text>
+              {t('city.uberDescLine1')}
+              <br />
+              <br />
+
+              {t('city.uberDescLine2')}
+            </Text>
+          </CardColumn>
+        </Card>
+      </MainWrapper>
+    </React.Fragment>
+  );
+}

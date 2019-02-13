@@ -8,7 +8,7 @@ import CityPage from '../pages/City';
 import FactsPage from '../pages/Facts';
 import InvitationPage from '../pages/Invitation';
 import LandingPage from '../pages/Landing';
-import PhotosPage from '../pages/Photos';
+import TipsPage from '../pages/Tips';
 
 export default class App extends React.Component {
   render = () => {
@@ -18,8 +18,8 @@ export default class App extends React.Component {
           <Route path={constants.LANDING_ROUTE} exact component={LandingPage} />
           <Route path={constants.INVITATION_ROUTE} component={InvitationPage} />
           <Route path={constants.CITY_ROUTE} component={CityPage} />
-          <Route path={constants.PHOTOS_ROUTE} component={PhotosPage} />
           <Route path={constants.FACTS_ROUTE} component={FactsPage} />
+          <Route path={constants.TIPS_ROUTE} component={TipsPage} />
         </Wrapper>
       </Router>
     );

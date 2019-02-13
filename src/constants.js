@@ -37,23 +37,23 @@ export type InvitationType = {
 export const CITY_ROUTE = '/city';
 export const FACTS_ROUTE = '/facts';
 export const INVITATION_ROUTE = '/invitation';
-export const PHOTOS_ROUTE = '/photos';
 export const LANDING_ROUTE = '/';
+export const TIPS_ROUTE = '/tips';
 
 export const ROUTES = [
   CITY_ROUTE,
   FACTS_ROUTE,
   INVITATION_ROUTE,
-  PHOTOS_ROUTE,
   LANDING_ROUTE,
+  TIPS_ROUTE,
 ];
 
 export type RouteType =
   typeof CITY_ROUTE |
   typeof FACTS_ROUTE |
   typeof INVITATION_ROUTE |
-  typeof PHOTOS_ROUTE |
-  typeof LANDING_ROUTE;
+  typeof LANDING_ROUTE |
+  typeof TIPS_ROUTE;
 
 // Translations
 export const LANG_EN = 'en';

@@ -57,18 +57,19 @@ export default class InvitationPage extends React.Component<ContextRouter, State
 
   render = () => {
     const invite = store.getInvitation();
-    let title, message;
+    let title, messageLine1, messageLine2;
 
     if (invite) {
-      title = i18next.t('invitation.dearGuests', { guests: utils.guestsToString(invite.guests) });
-      message = i18next.t('invitation.guestsMessage');
+      title = ['invitation.dearGuests', { guests: utils.guestsToString(invite.guests) }];
+      messageLine1 = 'invitation.guestsMessageLine1';
+      messageLine2 = 'invitation.guestsMessageLine2';
     }
 
     return (
       <React.Fragment>
         <Header route={constants.INVITATION_ROUTE} />
 
-        <MainWrapper title={title} message={message}>
+        <MainWrapper title={title} messageLine1={messageLine1} messageLine2={messageLine2}>
           {invite
             ? (<Details invite={invite} />)
             : (<Form isLoading={this.state.isFetching} onSubmit={this.handleFetchInvitation} />)

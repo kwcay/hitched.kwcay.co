@@ -121,4 +121,8 @@ export const CardSubTitle = styled.span`
 export const CardText = styled.p`
   margin: 0px;
   text-align: ${props => props.textAlign || 'left'};
+
+  ${props => props.minHeight && css`
+    min-height: ${props.minHeight};
+  `}
 `;
