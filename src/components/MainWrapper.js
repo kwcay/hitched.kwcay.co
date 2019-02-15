@@ -44,10 +44,6 @@ const MainWrapper = ({ children, messageLine1, messageLine2, title, showHeaderFo
   return (
     <Background>
       <BackgroundFilm>
-        {/* {showHeaderFooter && (
-          <Shadow />
-        )} */}
-
         <Body>
           {bodyTitle && (<BodyTitle>{bodyTitle}</BodyTitle>)}
           {bodyMessageLine1 && (<BodyMessage noPadding={!!bodyMessageLine2}>{bodyMessageLine1}</BodyMessage>)}
@@ -101,23 +97,6 @@ const BackgroundFilm = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
-`;
-
-const Shadow = styled.div`
-  background: linear-gradient(${constants.TEXT_COLOUR}, transparent);
-  display: block;
-  position: fixed;
-  height: 0.8rem;
-  width: 100%;
-  z-index: 1;
-`;
-
-const Scrollable = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  // overflow-y: scroll;
-  // overflow-x: hidden;
 `;
 
 const Body = styled.main`
