@@ -96,24 +96,50 @@ const ActiveLink = styled(InactiveLink)`
 // Hamburger menu for mobile
 const MobileMenu = () => (
   <MobileMenuBtnWrapper>
-    <MobileMenuCheckbox />
+    <MobileMenuCheckbox type="checkbox" />
 
-    <MobileMenuBar className="menu-bar" />
-    <MobileMenuBar className="menu-bar" />
-    <MobileMenuBar className="menu-bar" />
+    <MobileMenuBar />
+    <MobileMenuBar />
+    <MobileMenuBar />
   </MobileMenuBtnWrapper>
 );
 
-const MENU_BUTTON_WIDTH = 30;
+const MENU_BUTTON_WIDTH = 35;
 
 const MobileMenuBtnWrapper = styled.div`
   width: ${MENU_BUTTON_WIDTH}px;
   position: absolute;
-  top: 40px;
+  top: 60px;
   right: 5vw;
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
     display: none;
+  }
+`;
+
+const MobileMenuBar = styled.span`
+  background: ${constants.ACTIVE_COLOUR} center center no-repeat url('${lineSrc}');
+  background-size: cover;
+  border-radius: 3px;
+
+  display: block;
+  width: ${MENU_BUTTON_WIDTH}px;
+  height: ${MENU_BUTTON_WIDTH / 10}px;
+  margin: ${MENU_BUTTON_WIDTH / 10}px auto;
+  position: relative;
+  z-index: 1;
+
+  transform-origin: ${MENU_BUTTON_WIDTH / 10}px 0px;
+  transition: transform ${constants.TRANSITION_TIME} cubic-bezier(0.77, 0.2, 0.05, 1.0),
+              background-color ${constants.TRANSITION_TIME} cubic-bezier(0.77, 0.2, 0.05, 1.0),
+              opacity ${constants.TRANSITION_TIME} ease;
+
+  &:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  &:nth-last-child(2) {
+    transform-origin: 0% 100%;
   }
 `;
 
@@ -132,18 +158,19 @@ const MobileMenuCheckbox = styled.input`
   -webkit-touch-callout: none;
 
   // Turn hamburger menu into a cross
-  &:checked ~ .menu-bar {
+  &:checked ~ ${MobileMenuBar} {
     opacity: 1;
-    transform: rotate(45deg) translate(${MENU_BUTTON_WIDTH / 10}px, -${MENU_BUTTON_WIDTH / 10}px);
-    background-color: $accent-color;
+    transform: rotate(45deg) translate(-7px, -12.5px);
+    background-color: ${constants.ACTIVE_COLOUR};
   }
 
-  &:checked ~ .menu-bar:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0px, ${MENU_BUTTON_WIDTH / 4});
+  &:checked ~ ${MobileMenuBar}:nth-last-child(2) {
+    // transform: rotate(-45deg) translate(0px, ${MENU_BUTTON_WIDTH / 4}px);
+    transform: rotate(-45deg) translate(-7px, 12.5px);
   }
 
   // Hide the middle line when expanding the menu.
-  &:checked ~ .menu-bar:nth-last-child(3) {
+  &:checked ~ ${MobileMenuBar}:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
@@ -151,35 +178,5 @@ const MobileMenuCheckbox = styled.input`
   // Slide in menu
   &:checked ~ ul {
     transform: none;
-  }
-`;
-
-const MobileMenuBar = styled.span`
-  background: ${constants.ACTIVE_COLOUR} center center no-repeat url('${lineSrc}');
-  background-size: cover;
-  border-radius: 3px;
-
-  display: block;
-  width: ${MENU_BUTTON_WIDTH}px;
-  height: ${MENU_BUTTON_WIDTH / 10}px;
-  margin: ${MENU_BUTTON_WIDTH / 10}px auto;
-  position: relative;
-  z-index: 1;
-
-  transform-origin: $menu-button-width/10 0px;
-  transition: transform $transition-time cubic-bezier(0.77,0.2,0.05,1.0),
-              background-color $transition-time cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity $transition-time ease;
-
-  // &:hover {
-  //   background-color: $accent-color;
-  // }
-
-  &:first-child {
-    transform-origin: 0% 0%;
-  }
-
-  &:nth-last-child(2) {
-    transform-origin: 0% 100%;
   }
 `;

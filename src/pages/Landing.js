@@ -31,7 +31,7 @@ export default (props: ContextRouter) => {
 
   return (
     <React.Fragment>
-      <MainWrapper showHeaderFooter={false}>
+      <MainWrapper bodyDisplay="flex" showHeaderFooter={false}>
         <FrameWrapper>
           <Frame>
             <Wrapper>
@@ -56,6 +56,7 @@ export default (props: ContextRouter) => {
 const FrameWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-grow: 1;
   height: 100%;
   margin: auto;
   max-width: 550px;

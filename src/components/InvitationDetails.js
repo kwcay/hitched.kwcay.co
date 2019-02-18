@@ -6,12 +6,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import * as constants from '../constants';
 import GuestAttendance from './GuestAttendance';
 import Card, {
   CardColumn,
   CardTitle as Title,
-  CardSubTitle as SubTitle,
   CardText as Text,
 } from '../components/Card';
 

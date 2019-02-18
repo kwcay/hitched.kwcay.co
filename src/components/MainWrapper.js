@@ -10,6 +10,7 @@ import backgroundSrc from '../assets/background.jpg';
 type TranslatableType = string | Array;
 
 type Props = {
+  bodyDisplay?: string,
   children: React.ReactNode,
   messageLine1?: TranslatableType,
   messageLine2?: TranslatableType,
@@ -17,7 +18,7 @@ type Props = {
   title?: TranslatableType,
 }
 
-const MainWrapper = ({ children, messageLine1, messageLine2, title, showHeaderFooter }: Props) => {
+const MainWrapper = (props: Props) => {
   const { i18n, t } = useTranslation();
   const { language: currentLanguageCode } = i18n;
   const nextLanguageCode = currentLanguageCode === constants.LANG_EN
@@ -30,9 +31,9 @@ const MainWrapper = ({ children, messageLine1, messageLine2, title, showHeaderFo
   const translateStr = (translate: TranslatableType): string => typeof translate === 'string'
     ? t(translate)
     : t(translate[0], translate[1]);
-  const bodyTitle = title && translateStr(title);
-  const bodyMessageLine1 = messageLine1 && translateStr(messageLine1);
-  const bodyMessageLine2 = messageLine2 && translateStr(messageLine2);
+  const bodyTitle = props.title && translateStr(props.title);
+  const bodyMessageLine1 = props.messageLine1 && translateStr(props.messageLine1);
+  const bodyMessageLine2 = props.messageLine2 && translateStr(props.messageLine2);
 
   // Updates the user-defined language.
   const setLanguage = () => {
@@ -44,15 +45,15 @@ const MainWrapper = ({ children, messageLine1, messageLine2, title, showHeaderFo
   return (
     <Background>
       <BackgroundFilm>
-        <Body>
+        <Body display={props.bodyDisplay}>
           {bodyTitle && (<BodyTitle>{bodyTitle}</BodyTitle>)}
           {bodyMessageLine1 && (<BodyMessage noPadding={!!bodyMessageLine2}>{bodyMessageLine1}</BodyMessage>)}
           {bodyMessageLine2 && (<BodyMessage>{bodyMessageLine2}</BodyMessage>)}
 
-          {children}
+          {props.children}
         </Body>
 
-        {showHeaderFooter && (
+        {props.showHeaderFooter && (
           <Footer>
             <FooterLink href="https://kwcay.co" target="_blank">
               <MarginSpan>&copy;2019</MarginSpan>
@@ -80,6 +81,7 @@ const MainWrapper = ({ children, messageLine1, messageLine2, title, showHeaderFo
 }
 
 MainWrapper.defaultProps = {
+  bodyDisplay: 'inline-block',
   childre: [],
   showHeaderFooter: true,
 }
@@ -101,6 +103,7 @@ const BackgroundFilm = styled.div`
 
 const Body = styled.main`
   box-sizing: border-box;
+  display: ${props => props.display};
   flex-grow: 1;
   margin: 0px auto;
   max-width: 1200px;

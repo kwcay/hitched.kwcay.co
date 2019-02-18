@@ -15,7 +15,7 @@ import MainWrapper from '../components/MainWrapper';
 import Details from '../components/InvitationDetails';
 
 import type { ContextRouter } from 'react-router-dom';
-import type { InvitationType, InvitationGuestType } from '../constants';
+import type { InvitationType } from '../constants';
 
 type State = {
   invite: ?InvitationType,
