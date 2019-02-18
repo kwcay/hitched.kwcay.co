@@ -83,7 +83,7 @@ const LangButton = styled.button`
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   text-transform: uppercase;
 
