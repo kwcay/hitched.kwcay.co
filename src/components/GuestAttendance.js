@@ -4,23 +4,48 @@
  * @flow
  */
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import * as constants from '../constants';
 
+import type { InvitationAttendanceType } from '../constants';
+
 type Props = {
-  name: string,
-  isAttending: bool,
+  firstName: string,
+  lastName: string,
+  isAttending: InvitationAttendanceType,
+  onAcceptInvitation: (firstName: string, lastName: string) => void,
+  onDeclineInvitation: (firstName: string, lastName: string) => void,
 }
 
 export default (props: Props) => {
   const { t } = useTranslation();
+  const fullName = `${props.firstName} ${props.lastName}`.trim();
+
+  // Attendance
+  const hasAccepted = props.isAttending === constants.isAttending ? 'done' : null;
+  const hasDeclined = props.isAttending === constants.isNotAttending ? 'done' : null;
+
+  // Update attendance.
+  const acceptInvitation = hasAccepted
+    ? null
+    : () => props.onAcceptInvitation(props.firstName, props.lastName);
+
+  const declineInvitation = hasDeclined
+    ? null
+    : () => props.onDeclineInvitation(props.firstName, props.lastName);
 
   return (
     <Wrapper>
-      <Name>{props.name}</Name>
-      <Button>{t('invitation.accept')}</Button>
-      <Button>{t('invitation.decline')}</Button>
+      <Name>{fullName}</Name>
+
+      <Button selected={hasAccepted} onClick={acceptInvitation}>
+        {t('invitation.accept', { context: hasAccepted })}
+      </Button>
+
+      <Button selected={hasDeclined} onClick={declineInvitation}>
+        {t('invitation.decline', { context: hasDeclined })}
+      </Button>
     </Wrapper>
   );
 }
@@ -55,4 +80,9 @@ const Button = styled.button`
     border-bottom-color: ${constants.ACTIVE_COLOUR};
     color: ${constants.ACTIVE_COLOUR};
   }
+
+  ${props => props.selected && css`
+    border-bottom-color: ${constants.TEXT_COLOUR};
+    color: ${constants.TEXT_COLOUR};
+  `}
 `;

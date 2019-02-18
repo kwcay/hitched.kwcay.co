@@ -3,7 +3,7 @@
  *
  * @flow
  */
-import type { InvitationType, LanguageType } from './constants';
+import type { InvitationType, LanguageType } from '../constants';
 
 // Storage keys.
 const INVITATION_KEY = 'invite';

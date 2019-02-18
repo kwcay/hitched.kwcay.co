@@ -6,6 +6,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import * as constants from '../constants';
 import GuestAttendance from './GuestAttendance';
 import Card, {
   CardColumn,
@@ -18,9 +19,13 @@ import type { InvitationType } from '../constants';
 
 type Props = {
   invite: InvitationType,
+  onAcceptCeremony: (firstName: string, lastName: string) => void,
+  onAcceptReception: (firstName: string, lastName: string) => void,
+  onDeclineCeremony: (firstName: string, lastName: string) => void,
+  onDeclineReception: (firstName: string, lastName: string) => void,
 }
 
-export default ({ invite }: Props) => {
+export default (props: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -48,14 +53,21 @@ export default ({ invite }: Props) => {
 
             <Rsvp />
 
-            {invite.guests.map(({ name, isAttendingCeremony }) => (
-              <GuestAttendance name={name} isAttending={isAttendingCeremony} />
+            {props.invite.guests.map(({ firstName, lastName, isAttendingCeremony }) => (
+              <GuestAttendance
+                key={`${firstName}-${lastName}`}
+                firstName={firstName}
+                lastName={lastName}
+                isAttending={isAttendingCeremony}
+                onAcceptInvitation={props.onAcceptCeremony}
+                onDeclineInvitation={props.onDeclineCeremony}
+              />
             ))}
           </CardColumn>
         </Card>
       </CardWrapper>
 
-      {invite.hasReceptionInvite && (
+      {props.invite.hasReceptionInvite && (
         <CardWrapper>
           <Card>
             <CardColumn>
@@ -79,8 +91,15 @@ export default ({ invite }: Props) => {
 
               <Rsvp />
 
-              {invite.guests.map(({ name, isAttendingCeremony }) => (
-                <GuestAttendance name={name} isAttending={isAttendingCeremony} />
+              {props.invite.guests.map(({ firstName, lastName, isAttendingReception }) => (
+                <GuestAttendance
+                  key={`${firstName}-${lastName}`}
+                  firstName={firstName}
+                  lastName={lastName}
+                  isAttending={isAttendingReception}
+                  onAcceptInvitation={props.onAcceptReception}
+                  onDeclineInvitation={props.onDeclineReception}
+                />
               ))}
             </CardColumn>
           </Card>

@@ -18,12 +18,18 @@ export const DEVICE_WIDTH_TABLET = '770px';
 export const DEVICE_WIDTH_DESKTOP = '1000px';
 
 // Invitations
+export const isAttending = 1;
+export const isNotAttending = 2;
+export type InvitationAttendanceType =
+  isAttending |
+  isNotAttending;
+
 export type InvitationGuestType = {
-  name: string,
-  email: string,
-  address: string,
-  isAttendingCeremony: string,
-  isAttendingReception: string,
+  firstName: string,
+  lastName: string,
+  contact: string,
+  isAttendingCeremony: InvitationAttendanceType,
+  isAttendingReception: InvitationAttendanceType,
 }
 
 export type InvitationType = {

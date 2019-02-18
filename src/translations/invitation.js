@@ -4,6 +4,7 @@
 
 const en = {
   accept: 'Accept',
+  accept_done: 'Accepted',
   ceremony: 'Ceremony',
   ceremonyCocktail: 'Ceremony & Cocktail',
   ceremonyDate: 'September 7, 2019',
@@ -11,6 +12,7 @@ const en = {
   dayParty: 'Day party',
   dearGuests: 'Dear {{guests}}',
   decline: 'Decline',
+  decline_done: 'Declined',
   enterCode: 'Enter your code to see your invitation',
   guestsMessageLine1: 'You are formally invited to our wedding celebration.',
   guestsMessageLine2: 'RSVP by May 15th, 2019 as places are limited.',
@@ -24,6 +26,7 @@ const en = {
 const fr = {
   ...en,
   accept: 'Accepter',
+  accept_done: 'Accepté',
   ceremony: 'Cérémonie',
   ceremonyCocktail: 'Cérémonie & Cocktail',
   ceremonyDate: '7 Septembre 2019',
@@ -31,6 +34,7 @@ const fr = {
   dayParty: 'Fête style brunch',
   dearGuests: 'Bonjour {{guests}}',
   decline: 'Décliner',
+  decline_done: 'Décliné',
   enterCode: 'Entrez votre code pour voir votre invitation',
   guestsMessageLine1: 'Vous êtes formellement invité à notre célébration de mariage.',
   guestsMessageLine2: 'Réservez votre place avant le 15 mai, 2019. Nos places sont limitées.',
