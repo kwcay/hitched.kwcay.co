@@ -58,7 +58,11 @@ const Wrapper = styled.div`
 
 const Name = styled.div`
   text-align: left;
-  width: 12rem;
+  width: 100%;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_PHONE}) {
+    width: 12rem;
+  }
 `;
 
 const Button = styled.button`
@@ -74,6 +78,7 @@ const Button = styled.button`
 
   margin: 0 0.2rem;
   padding: 0;
+  height: 2rem;
   width: 5rem;
 
   &:hover {

@@ -6,6 +6,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import * as constants from '../constants';
 import GuestAttendance from './GuestAttendance';
 import Card, {
   CardColumn,
@@ -117,9 +118,13 @@ const Details = styled.div`
 const CardWrapper = styled.div`
   flex-grow: 1;
   margin: 0 auto 30px auto;
-  min-width: 480px;
   max-width: 480px;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_PHONE}) {
+    min-width: 480px;
+  }
 `;
+
 const RsvpText = styled.div`
   text-align: left;
   text-decoration: underline;
