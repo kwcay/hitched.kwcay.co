@@ -178,7 +178,11 @@ export default class InvitationPage extends React.Component<ContextRouter, State
       <React.Fragment>
         <Header route={constants.INVITATION_ROUTE} />
 
-        <MainWrapper title={title} messageLine1={messageLine1} messageLine2={messageLine2}>
+        <MainWrapper
+          title={title}
+          messageLine1={messageLine1}
+          messageLine2={messageLine2}
+        >
           {invite
             ? (<Details
                 invite={invite}

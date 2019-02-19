@@ -35,7 +35,7 @@ export default (props: ContextRouter) => {
         <FrameWrapper>
           <Frame>
             <Wrapper>
-              <JayneFrank />
+              <JayneFrank width="90%" />
 
               <Selector>
                 {languages.map(({ code }) => (

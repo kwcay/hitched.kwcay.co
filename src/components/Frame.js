@@ -36,8 +36,11 @@ const FrameDiv = styled.div`
   position: relative;
   width: 100%;
 
+  transform: rotate(90deg);
+
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
     background-image: url('${frameTabletSrc}');
+    transform: rotate(0deg);
   }
 
   @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
@@ -47,10 +50,20 @@ const FrameDiv = styled.div`
 
 const Contents = styled.div`
   position: absolute;
-  top: 7%;
-  left: 5%;
-  bottom: 7%;
-  right: 5%;
+  top: -20%;
+  left: 20%;
+  bottom: -20%;
+  right: 20%;
+
+  transform: rotate(-90deg);
+
+  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+    top: 7%;
+    left: 5%;
+    bottom: 7%;
+    right: 5%;
+    transform: rotate(0deg);
+  }
 `;
 
 export default Frame;
