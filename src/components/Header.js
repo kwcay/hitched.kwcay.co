@@ -46,7 +46,7 @@ export default ({ route }: Props) => {
         {t('facts.title')}
       </Link>
 
-      <MobileMenu />
+      <MobileMenu linkProps={linkProps} t={t} />
     </Wrapper>
   );
 }
@@ -59,7 +59,9 @@ const Wrapper = styled.header`
   width: 100%;
   min-height: 9rem;
   max-width: 1200px;
+  z-index: 2;
 
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -94,22 +96,41 @@ const ActiveLink = styled(InactiveLink)`
 `;
 
 // Hamburger menu for mobile
-const MobileMenu = () => (
+const MobileMenu = ({ linkProps, t }) => (
   <MobileMenuBtnWrapper>
     <MobileMenuCheckbox type="checkbox" />
 
     <MobileMenuBar />
     <MobileMenuBar />
     <MobileMenuBar />
+
+    <MobileMenuLinks>
+      <MobileLink {...linkProps[constants.INVITATION_ROUTE]}>
+        {t('invitation.title')}
+      </MobileLink>
+
+      <MobileLink {...linkProps[constants.CITY_ROUTE]}>
+        {t('city.title')}
+      </MobileLink>
+
+      <MobileLink {...linkProps[constants.TIPS_ROUTE]}>
+        {t('tips.title')}
+      </MobileLink>
+
+      <MobileLink {...linkProps[constants.FACTS_ROUTE]}>
+        {t('facts.title')}
+      </MobileLink>
+    </MobileMenuLinks>
   </MobileMenuBtnWrapper>
 );
 
 const MENU_BUTTON_WIDTH = 35;
+const MENU_BUTTON_TOP = 60;
 
 const MobileMenuBtnWrapper = styled.div`
   width: ${MENU_BUTTON_WIDTH}px;
   position: absolute;
-  top: 60px;
+  top: ${MENU_BUTTON_TOP}px;
   right: 5vw;
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
@@ -127,7 +148,7 @@ const MobileMenuBar = styled.span`
   height: ${MENU_BUTTON_WIDTH / 10}px;
   margin: ${MENU_BUTTON_WIDTH / 10}px auto;
   position: relative;
-  z-index: 1;
+  z-index: 3;
 
   transform-origin: ${MENU_BUTTON_WIDTH / 10}px 0px;
   transition: transform ${constants.TRANSITION_TIME} cubic-bezier(0.77, 0.2, 0.05, 1.0),
@@ -150,6 +171,7 @@ const MobileMenuCheckbox = styled.input`
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 3;
 
   cursor: pointer;
 
@@ -180,3 +202,31 @@ const MobileMenuCheckbox = styled.input`
     transform: none;
   }
 `;
+
+const MobileMenuLinks = styled.div`
+  background-color: white;
+  list-style: none;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  position: absolute;
+  top: -${MENU_BUTTON_TOP}px;
+  right: -26px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+`;
+
+const MobileLinkWrapper = styled(RouterLink)`
+  margin: 2vh auto 1vh auto;
+  padding: 2vh 2vw;
+`;
+
+const MobileLink = ({ children, current, route }) => (
+  <MobileLinkWrapper current={current} to={route}>
+    {children}
+  </MobileLinkWrapper>
+);

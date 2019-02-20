@@ -26,8 +26,11 @@ a:hover, a:active {
 button {
   outline: none;
 }
-input,
-textarea {
+input, textarea {
   font: 16px/1.618 'Lato', sans-serif;
   outline: none;
+}
+button, input {
+  border-radius: none;
+  -webkit-appearance: none;
 }

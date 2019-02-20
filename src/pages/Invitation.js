@@ -166,6 +166,7 @@ export default class InvitationPage extends React.Component<ContextRouter, State
 
   render = () => {
     const { invite } = this.state;
+    const bodyDisplay = invite ? 'inline-block' : 'flex';
     let title, messageLine1, messageLine2;
 
     if (invite) {
@@ -179,6 +180,7 @@ export default class InvitationPage extends React.Component<ContextRouter, State
         <Header route={constants.INVITATION_ROUTE} />
 
         <MainWrapper
+          bodyDisplay={bodyDisplay}
           title={title}
           messageLine1={messageLine1}
           messageLine2={messageLine2}
