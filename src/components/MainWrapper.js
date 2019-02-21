@@ -110,6 +110,10 @@ const Body = styled.main`
   padding: 2rem;
   position: relative;
   width: 100%;
+
+  ${props => props.display === 'flex' && css`
+    align-items: center;
+  `}
 `;
 
 const BodyTitle = styled.div`

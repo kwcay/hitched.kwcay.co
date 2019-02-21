@@ -125,7 +125,7 @@ const MobileMenu = ({ linkProps, t }) => (
 );
 
 const MENU_BUTTON_WIDTH = 35;
-const MENU_BUTTON_TOP = 60;
+const MENU_BUTTON_TOP = 20;
 
 const MobileMenuBtnWrapper = styled.div`
   width: ${MENU_BUTTON_WIDTH}px;
@@ -198,6 +198,7 @@ const MobileMenuCheckbox = styled.input`
 
 const MobileMenuLinks = styled.div`
   background-color: white;
+  box-sizing: border-box;
   list-style: none;
   text-align: center;
 
@@ -208,7 +209,7 @@ const MobileMenuLinks = styled.div`
 
   position: absolute;
   top: -${MENU_BUTTON_TOP}px;
-  right: -26px;
+  right: -19px;
   height: 100vh;
   width: 100vw;
   z-index: 1;
