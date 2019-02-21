@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -165,41 +165,34 @@ const MobileMenuBar = styled.span`
 `;
 
 const MobileMenuCheckbox = styled.input`
+  cursor: pointer;
   display: block;
   width: ${MENU_BUTTON_WIDTH}px;
   height: 100%;
+  opacity: 0;
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 3;
+  z-index: 4;
 
-  cursor: pointer;
-
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the menu */
   -webkit-touch-callout: none;
 
   // Turn hamburger menu into a cross
   &:checked ~ ${MobileMenuBar} {
     opacity: 1;
-    transform: rotate(45deg) translate(-7px, -12.5px);
+    transform: rotate(45deg) translate(0px, 0px);
     background-color: ${constants.ACTIVE_COLOUR};
   }
 
   &:checked ~ ${MobileMenuBar}:nth-last-child(2) {
     // transform: rotate(-45deg) translate(0px, ${MENU_BUTTON_WIDTH / 4}px);
-    transform: rotate(-45deg) translate(-7px, 12.5px);
+    transform: rotate(-45deg) translate(-4px, 6px);
   }
 
   // Hide the middle line when expanding the menu.
   &:checked ~ ${MobileMenuBar}:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
-  }
-
-  // Slide in menu
-  &:checked ~ ul {
-    transform: none;
   }
 `;
 
@@ -211,6 +204,7 @@ const MobileMenuLinks = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding-top: 4vh;
 
   position: absolute;
   top: -${MENU_BUTTON_TOP}px;
@@ -218,15 +212,28 @@ const MobileMenuLinks = styled.div`
   height: 100vh;
   width: 100vw;
   z-index: 1;
+
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  transition: transform ${constants.TRANSITION_TIME} cubic-bezier(0.77, 0.2, 0.05, 1.0);
+
+  // Slide in menu
+  input:checked ~ & {
+    transform: none;
+  }
 `;
 
 const MobileLinkWrapper = styled(RouterLink)`
-  margin: 2vh auto 1vh auto;
-  padding: 2vh 2vw;
+  margin: 1vh auto 1vh auto;
+  padding: 1vh 1vw;
+
+  ${props => props.current && css`
+    color: ${constants.ACTIVE_COLOUR};
+  `}
 `;
 
 const MobileLink = ({ children, current, route }) => (
-  <MobileLinkWrapper current={current} to={route}>
+  <MobileLinkWrapper current={current ? 1 : undefined} to={route}>
     {children}
   </MobileLinkWrapper>
 );
