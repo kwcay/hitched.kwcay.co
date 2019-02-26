@@ -1,26 +1,43 @@
 # #hitched
 
-# Quickstart
+- [Getting started](#getting-started)
+- [Running the app](#running-the-app)
+- [Translation files](#translation-files)
+
+# Getting started
+
+Make sure [Yarn](https://yarnpkg.com) is installed on your machine:
 
 ```shell
-# Run locally
-yarn start
-
-# Deploy to Github Pages
-yarn deploy
+yarn --version
 ```
 
-# Initial setup
+Then clone the repository and install the dependencies:
 
-Create the local and production environment files:
+```shell
+git clone git@github.com:kwcay/hitched.kwcay.co.git
+cd hitched.kwcay.co
+yarn install
+```
+
+Finally, create a local environment file:
 
 ```shell
 cp ./.env.sample ./.env
-cp ./.env.sample ./.env.production
 ```
 
-Make sure the local API points to `http://localhost:8080` and the production one points to the right place.
+Make sure the API is set to `http://localhost:8080`, or wherever the your local version of the [Hitched API](https://github.com/kwcay/hitched-api) is running.
 
-# Updating the translations
+# Running the app
 
-The translation files are located in `./src/translations`. You can use the Github UI to modify them directly.
+```shell
+# Run the app locally.
+yarn start
+
+# Deploy to Github Pages.
+yarn deploy
+```
+
+# Translation files
+
+The translation files are in [`./src/translations`](https://github.com/kwcay/hitched.kwcay.co/tree/stable/src/translations). You can modify them directly from the Github UI.
