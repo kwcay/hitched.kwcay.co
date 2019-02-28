@@ -23,7 +23,7 @@ yarn install
 Finally, create a local environment file:
 
 ```shell
-cp ./.env.sample ./.env
+cp .env.sample .env
 ```
 
 Make sure the API is set to `http://localhost:8080`, or wherever the your local version of the [Hitched API](https://github.com/kwcay/hitched-api) is running.
