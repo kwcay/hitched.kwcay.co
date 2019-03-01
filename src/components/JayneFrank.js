@@ -22,27 +22,28 @@ JayneFrank.defaultProps = {
   width: '100%',
 }
 
+// Supporting components.
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: ${props => props.width};
+  margin: auto;
   max-width: 300px;
+  width: ${props => props.width};
 `;
+
+const imgMargin = '15px auto';
 
 const Image = styled.div`
   background: transparent center center no-repeat url('${props => props.image}');
   background-size: contain;
   height: ${props => props.height};
-  margin: 0.5vw auto;
+  margin: ${imgMargin};
   width: 100%;
 `;
 
 const Line = styled.img`
+  display: table;
   height: 1px;
   width: 10%;
-  margin: 0.5vw auto;
+  margin: ${imgMargin};
 `;
 
 export default JayneFrank;

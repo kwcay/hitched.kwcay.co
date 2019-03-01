@@ -110,18 +110,18 @@ export default (props: Props) => {
 
 // Supporting components
 const Details = styled.div`
-  display: flex;
-  align-items: top;
-  flex-wrap: wrap;
+  display: table;
+  width: 100%;
+  text-align: center;
 `;
 
 const CardWrapper = styled.div`
-  flex-grow: 1;
+  display: block;
   margin: 0 auto 30px auto;
   max-width: 480px;
 
-  @media (min-width: ${constants.DEVICE_WIDTH_PHONE}) {
-    min-width: 480px;
+  @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
+    display: table-cell;
   }
 `;
 

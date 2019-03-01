@@ -28,9 +28,10 @@ export default class App extends React.Component {
 
 const Wrapper = styled.div`
   color: ${constants.TEXT_COLOUR};
-  display: flex;
-  flex-direction: column;
+
+  display: table;
   height: 100%;
+  width: 100%;
 
   input {
     outline: none;

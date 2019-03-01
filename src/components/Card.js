@@ -42,15 +42,9 @@ const Contents = styled.div`
   box-sizing: border-box;
   text-align: center;
 
-  display: flex;
-  flex-direction: column;
   padding: 15px;
   height: 100%;
   width: 100%;
-
-  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
-    flex-direction: row;
-  }
 
   @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
     padding: 30px;
@@ -58,7 +52,7 @@ const Contents = styled.div`
 `;
 
 export const CardColumn = styled.div`
-  flex-grow: 1;
+  display: inline-block;
   padding: 5%;
   position: relative;
   width: 90%;

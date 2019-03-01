@@ -31,50 +31,49 @@ export default (props: ContextRouter) => {
 
   return (
     <React.Fragment>
-      <MainWrapper bodyDisplay="flex" showHeaderFooter={false}>
-        <FrameWrapper>
-          <Frame>
-            <Wrapper>
-              <JayneFrank width="90%" />
+      <MainWrapper showHeaderFooter={false}>
+        <Center>
+          <FrameWrapper>
+            <Frame>
+              <InnerWrapper>
+                <Center>
+                  <JayneFrank width="90%" />
 
-              <Selector>
-                {languages.map(({ code }) => (
-                  <LangButton key={code} data-code={code} onClick={setLanguage}>
-                    {t('general.enterSite', { lng: code })}
-                  </LangButton>
-                ))}
-              </Selector>
-            </Wrapper>
-          </Frame>
-        </FrameWrapper>
+                  <Selector>
+                    {languages.map(({ code }) => (
+                      <LangButton key={code} data-code={code} onClick={setLanguage}>
+                        {t('general.enterSite', { lng: code })}
+                      </LangButton>
+                    ))}
+                  </Selector>
+                </Center>
+              </InnerWrapper>
+            </Frame>
+          </FrameWrapper>
+        </Center>
       </MainWrapper>
     </React.Fragment>
   );
 }
 
 // Supporting components
+const Center = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+`;
+
 const FrameWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  height: 100%;
   margin: auto;
   max-width: 550px;
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+const InnerWrapper = styled.div`
+  display: table;
   height: 100%;
+  width: 100%;
 `;
 
 const Selector = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
   width: 100%;
 `;
 

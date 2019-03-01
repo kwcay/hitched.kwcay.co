@@ -52,7 +52,6 @@ export default (props: Props) => {
 
 // Supporting components
 const Wrapper = styled.div`
-  display: flex;
   margin: 0.7rem 0;
 `;
 

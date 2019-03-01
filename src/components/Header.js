@@ -34,9 +34,9 @@ export default ({ route }: Props) => {
         {t('city.title')}
       </Link>
 
-      <RouterLink to={constants.INVITATION_ROUTE}>
+      <JayneFrankLink to={constants.INVITATION_ROUTE}>
         <JayneFrank />
-      </RouterLink>
+      </JayneFrankLink>
 
       <Link {...linkProps[constants.TIPS_ROUTE]}>
         {t('tips.title')}
@@ -51,24 +51,23 @@ export default ({ route }: Props) => {
   );
 }
 
+// Supporting components
+const { DEVICE_WIDTH_DESKTOP: mobileMenuWidth}  = constants;
+
 const Wrapper = styled.header`
   background-color: white;
   box-sizing: border-box;
-  margin: 0px auto;
-  padding: 2.5vw;
-  width: 100%;
-  min-height: 9rem;
-  max-width: 1200px;
+  text-align: center;
   z-index: 2;
 
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  display: table-row;
+  margin: 0px auto;
+  width: 100%;
+  // max-width: 1200px;
+  position: fixed;
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
-    justify-content: space-between;
-    padding: 1vw;
+    padding: 14px;
   }
 `;
 
@@ -81,18 +80,23 @@ const Link = ({ children, current, route }) => {
 const InactiveLink = styled(RouterLink)`
   color: ${constants.TEXT_COLOUR};
   display: none;
-  padding: 1vw 2vw;
+  padding: 25px 0;
   text-align: center;
   text-transform: uppercase;
-  width: 10rem;
+  min-width: 10rem;
 
-  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+  @media (min-width: ${mobileMenuWidth}) {
     display: inline-block;
   }
 `;
 
 const ActiveLink = styled(InactiveLink)`
   color: ${constants.ACTIVE_COLOUR};
+`;
+
+const JayneFrankLink = styled(RouterLink)`
+  display: inline-block;
+  vertical-align: bottom;
 `;
 
 // Hamburger menu for mobile
@@ -133,7 +137,7 @@ const MobileMenuBtnWrapper = styled.div`
   top: ${MENU_BUTTON_TOP}px;
   right: 5vw;
 
-  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+  @media (min-width: ${mobileMenuWidth}) {
     display: none;
   }
 `;
@@ -209,7 +213,7 @@ const MobileMenuLinks = styled.div`
 
   position: absolute;
   top: -${MENU_BUTTON_TOP}px;
-  right: -19px;
+  right: -5vw;
   height: 100vh;
   width: 100vw;
   z-index: 1;

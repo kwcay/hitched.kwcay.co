@@ -10,7 +10,6 @@ import backgroundSrc from '../assets/background.jpg';
 type TranslatableType = string | Array;
 
 type Props = {
-  bodyDisplay?: string,
   children: React.ReactNode,
   messageLine1?: TranslatableType,
   messageLine2?: TranslatableType,
@@ -45,7 +44,7 @@ const MainWrapper = (props: Props) => {
   return (
     <Background>
       <BackgroundFilm>
-        <Body display={props.bodyDisplay}>
+        <Body hasTopMargin={props.showHeaderFooter}>
           {bodyTitle && (<BodyTitle>{bodyTitle}</BodyTitle>)}
           {bodyMessageLine1 && (<BodyMessage noPadding={!!bodyMessageLine2}>{bodyMessageLine1}</BodyMessage>)}
           {bodyMessageLine2 && (<BodyMessage>{bodyMessageLine2}</BodyMessage>)}
@@ -55,24 +54,26 @@ const MainWrapper = (props: Props) => {
 
         {props.showHeaderFooter && (
           <Footer>
-            <FooterLink href="https://kwcay.co" target="_blank">
-              <MarginSpan>&copy;2019</MarginSpan>
-              <MarginSpan>Kwahu</MarginSpan>
-              <MarginSpan>&amp;</MarginSpan>
-              <MarginSpan>Cayes</MarginSpan>
-            </FooterLink>
+            <FooterCentering>
+              <FooterLink href="https://kwcay.co" target="_blank">
+                <MarginSpan>&copy;2019</MarginSpan>
+                <MarginSpan>Kwahu</MarginSpan>
+                <MarginSpan>&amp;</MarginSpan>
+                <MarginSpan>Cayes</MarginSpan>
+              </FooterLink>
 
-            <FooterSeparator>|</FooterSeparator>
+              <FooterSeparator>|</FooterSeparator>
 
-            <FooterLink href="mailto:hitched@kwcay.co" target="_blank" gold>
-              hitched@kwcay.co
-            </FooterLink>
+              <FooterLink href="mailto:hitched@kwcay.co" target="_blank" gold>
+                hitched@kwcay.co
+              </FooterLink>
 
-            <FooterSeparator>|</FooterSeparator>
+              <FooterSeparator>|</FooterSeparator>
 
-            <FooterLink onClick={setLanguage}>
-              {constants.SUPPORTED_LANGUAGES.get(nextLanguageCode)}
-            </FooterLink>
+              <FooterLink onClick={setLanguage}>
+                {constants.SUPPORTED_LANGUAGES.get(nextLanguageCode)}
+              </FooterLink>
+            </FooterCentering>
           </Footer>
         )}
       </BackgroundFilm>
@@ -81,38 +82,41 @@ const MainWrapper = (props: Props) => {
 }
 
 MainWrapper.defaultProps = {
-  bodyDisplay: 'inline-block',
-  childre: [],
+  children: [],
   showHeaderFooter: true,
 }
 
 const Background = styled.div`
   background: transparent center center no-repeat url('${backgroundSrc}');
   background-size: cover;
-  flex-grow: 1;
+
+  display: table;
+  height: 100%;
+  width: 100%;
   overflow-y: scroll;
-  position: relative;
 `;
 
 const BackgroundFilm = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+  display: table;
+  text-align: center;
+
+  height: 100%;
+  width: 100%;
 `;
 
 const Body = styled.main`
   box-sizing: border-box;
-  display: ${props => props.display};
-  flex-grow: 1;
+  display: table;
+  height: 100%;
+  width: 100%;
   margin: 0px auto;
   max-width: 1200px;
   padding: 2rem;
   position: relative;
-  width: 100%;
 
-  ${props => props.display === 'flex' && css`
-    align-items: center;
+  ${props => props.hasTopMargin && css`
+    padding-top: 180px;
   `}
 `;
 
@@ -134,16 +138,23 @@ const BodyMessage = styled(BodyTitle)`
 
 const Footer = styled.footer`
   background-color: white;
-  display: flex;
   justify-content: center;
   font-size: 0.8rem;
   text-align: center;
+
+  display: table-row;
   height: 6rem;
   width: 100%;
 `;
 
+const FooterCentering = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+`;
+
 const FooterLink = styled.a`
   cursor: pointer;
+  display: inline-block;
   margin: auto 0.2rem;
 
   ${props => props.gold && css`
@@ -159,6 +170,7 @@ const FooterSeparator = styled.span`
 const MarginSpan = styled.span`
   display: inline-block;
   margin: 0 0.14rem;
+  vertical-align: middle;
 `;
 
 export default MainWrapper;
