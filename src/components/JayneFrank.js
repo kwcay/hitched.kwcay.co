@@ -25,7 +25,7 @@ JayneFrank.defaultProps = {
 // Supporting components.
 const Wrapper = styled.div`
   margin: auto;
-  max-width: 300px;
+  max-width: 12rem;
   width: ${props => props.width};
 `;
 

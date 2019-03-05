@@ -63,12 +63,7 @@ const Wrapper = styled.header`
   display: table-row;
   margin: 0px auto;
   width: 100%;
-  // max-width: 1200px;
   position: fixed;
-
-  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
-    padding: 14px;
-  }
 `;
 
 const Link = ({ children, current, route }) => {

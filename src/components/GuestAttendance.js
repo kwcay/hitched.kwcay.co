@@ -56,6 +56,7 @@ const Wrapper = styled.div`
 `;
 
 const Name = styled.div`
+  display: inline-block;
   text-align: left;
   width: 100%;
 

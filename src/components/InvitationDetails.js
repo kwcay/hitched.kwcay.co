@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 import * as constants from '../constants';
 import GuestAttendance from './GuestAttendance';
 import Card, {
-  CardColumn,
   CardTitle as Title,
   CardText as Text,
 } from '../components/Card';
@@ -31,76 +30,72 @@ export default (props: Props) => {
     <Details>
       <CardWrapper>
         <Card>
-          <CardColumn>
-            <Title>{t('invitation.ceremony')}</Title>
+          <Title>{t('invitation.ceremony')}</Title>
 
-            <Text textAlign="center">
-              {t('invitation.ceremonyDate').toUpperCase()}
-            </Text>
+          <Text textAlign="center">
+            {t('invitation.ceremonyDate').toUpperCase()}
+          </Text>
 
-            <Text textAlign="center">
-              {t('invitation.ceremonyCocktail').toUpperCase()}
-            </Text>
+          <Text textAlign="center">
+            {t('invitation.ceremonyCocktail').toUpperCase()}
+          </Text>
 
-            <br />
-            <Text textAlign="center">18H00 - 20H00</Text>
-            <Text textAlign="center">{t('invitation.ceremonyDoorsOpenAt')}</Text>
+          <br />
+          <Text textAlign="center">18H00 - 20H00</Text>
+          <Text textAlign="center">{t('invitation.ceremonyDoorsOpenAt')}</Text>
 
-            <br />
-            <Text textAlign="center">12099 Camille-Tessier</Text>
-            <Text textAlign="center">Montreal, QC H1E 6A2</Text>
+          <br />
+          <Text textAlign="center">12099 Camille-Tessier</Text>
+          <Text textAlign="center">Montreal, QC H1E 6A2</Text>
 
-            <Rsvp />
+          <Rsvp />
 
-            {props.invite.guests.map(({ firstName, lastName, isAttendingCeremony }) => (
-              <GuestAttendance
-                key={`${firstName}-${lastName}`}
-                firstName={firstName}
-                lastName={lastName}
-                isAttending={isAttendingCeremony}
-                onAcceptInvitation={props.onAcceptCeremony}
-                onDeclineInvitation={props.onDeclineCeremony}
-              />
-            ))}
-          </CardColumn>
+          {props.invite.guests.map(({ firstName, lastName, isAttendingCeremony }) => (
+            <GuestAttendance
+              key={`${firstName}-${lastName}`}
+              firstName={firstName}
+              lastName={lastName}
+              isAttending={isAttendingCeremony}
+              onAcceptInvitation={props.onAcceptCeremony}
+              onDeclineInvitation={props.onDeclineCeremony}
+            />
+          ))}
         </Card>
       </CardWrapper>
 
       {props.invite.hasReceptionInvite && (
         <CardWrapper>
           <Card>
-            <CardColumn>
-              <Title>{t('invitation.reception')}</Title>
+            <Title>{t('invitation.reception')}</Title>
 
-              <Text textAlign="center">
-                {t('invitation.receptionDate').toUpperCase()}
-              </Text>
+            <Text textAlign="center">
+              {t('invitation.receptionDate').toUpperCase()}
+            </Text>
 
-              <Text textAlign="center">
-                {t('invitation.dayParty').toUpperCase()}
-              </Text>
+            <Text textAlign="center">
+              {t('invitation.dayParty').toUpperCase()}
+            </Text>
 
-              <br />
-              <Text textAlign="center">13H00 - 19H00</Text>
-              <Text textAlign="center">{t('invitation.receptionDoorsOpenAt')}</Text>
+            <br />
+            <Text textAlign="center">13H00 - 19H00</Text>
+            <Text textAlign="center">{t('invitation.receptionDoorsOpenAt')}</Text>
 
-              <br />
-              <Text textAlign="center">La Scena - Quai Jacques-Cartier</Text>
-              <Text textAlign="center">Montreal, QC H2Y 4B2</Text>
+            <br />
+            <Text textAlign="center">La Scena - Quai Jacques-Cartier</Text>
+            <Text textAlign="center">Montreal, QC H2Y 4B2</Text>
 
-              <Rsvp />
+            <Rsvp />
 
-              {props.invite.guests.map(({ firstName, lastName, isAttendingReception }) => (
-                <GuestAttendance
-                  key={`${firstName}-${lastName}`}
-                  firstName={firstName}
-                  lastName={lastName}
-                  isAttending={isAttendingReception}
-                  onAcceptInvitation={props.onAcceptReception}
-                  onDeclineInvitation={props.onDeclineReception}
-                />
-              ))}
-            </CardColumn>
+            {props.invite.guests.map(({ firstName, lastName, isAttendingReception }) => (
+              <GuestAttendance
+                key={`${firstName}-${lastName}`}
+                firstName={firstName}
+                lastName={lastName}
+                isAttending={isAttendingReception}
+                onAcceptInvitation={props.onAcceptReception}
+                onDeclineInvitation={props.onDeclineReception}
+              />
+            ))}
           </Card>
         </CardWrapper>
       )}
@@ -110,15 +105,17 @@ export default (props: Props) => {
 
 // Supporting components
 const Details = styled.div`
-  display: table;
-  width: 100%;
   text-align: center;
+  width: 100%;
+  display: table;
+  border-spacing: 2rem 0;
 `;
 
 const CardWrapper = styled.div`
   display: block;
   margin: 0 auto 30px auto;
   max-width: 480px;
+  vertical-align: top;
 
   @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
     display: table-cell;

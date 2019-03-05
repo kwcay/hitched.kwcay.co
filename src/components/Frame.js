@@ -32,6 +32,7 @@ Frame.defaultProps = {
 const FrameDiv = styled.div`
   background: transparent center center no-repeat url('${framePhoneSrc}');
   background-size: contain;
+  margin-top: 20%;
   padding-top: 64%; // Maintains the aspect ratio of the frame.
   position: relative;
   width: 100%;
@@ -40,6 +41,7 @@ const FrameDiv = styled.div`
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
     background-image: url('${frameTabletSrc}');
+    margin-top: 0;
     transform: rotate(0deg);
   }
 
