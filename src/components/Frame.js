@@ -32,7 +32,7 @@ Frame.defaultProps = {
 const FrameDiv = styled.div`
   background: transparent center center no-repeat url('${framePhoneSrc}');
   background-size: contain;
-  margin-top: 20%;
+  // margin-top: 20%;
   padding-top: 64%; // Maintains the aspect ratio of the frame.
   position: relative;
   width: 100%;

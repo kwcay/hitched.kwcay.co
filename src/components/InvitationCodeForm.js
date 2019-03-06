@@ -19,27 +19,29 @@ export default (props: Props) => {
 
   return (
     <Wrapper>
-      <Frame>
-        <Body>
-          <Label>
-            {t('invitation.enterCode')}
-          </Label>
+      <FrameWrapper>
+        <Frame>
+          <Body>
+            <Label>
+              {t('invitation.enterCode')}
+            </Label>
 
-          <InputContainer onSubmit={props.onSubmit}>
-            <Input
-              name="code"
-              type="text"
-              disabled={props.isLoading}
-              required
-              autoFocus
-            />
+            <InputContainer onSubmit={props.onSubmit}>
+              <Input
+                name="code"
+                type="text"
+                disabled={props.isLoading}
+                required
+                autoFocus
+              />
 
-            {!props.isLoading && (
-              <Submit type="submit" value=">" />
-            )}
-          </InputContainer>
-        </Body>
-      </Frame>
+              {!props.isLoading && (
+                <Submit type="submit" value=">" />
+              )}
+            </InputContainer>
+          </Body>
+        </Frame>
+      </FrameWrapper>
     </Wrapper>
   );
 }
@@ -47,22 +49,30 @@ export default (props: Props) => {
 // Supporting components
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
-  max-width: 600px;
-  margin: 0px auto;
+  display: table-cell;
+  vertical-align: middle;
+`;
+
+const FrameWrapper = styled.div`
+  margin: auto;
+  max-width: 550px;
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
-    // transform: rotate(0deg);
+    max-width: 600px;
   }
 `;
 
+
 const Body = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 25%;
+  padding: 10px;
+  width: 100%;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+    margin-top: 20%;
+  }
 `;
 
 const Label = styled.div`
@@ -73,9 +83,8 @@ const Label = styled.div`
 `;
 
 const InputContainer = styled.form`
-  display: flex;
-  align-items: center;
-  max-width: 90%;
+  display: inline-block;
+  width: 100%;
 `;
 
 const inputHeight = '40px';
@@ -86,15 +95,15 @@ const Input = styled.input`
   display: inline-block;
   color: white;
   font-family: Lato;
-  letter-spacing: 5px;
+  letter-spacing: 0.4rem;
   line-height: ${inputHeight};
   text-align: center;
   text-transform: uppercase;
 
-  flex-grow: 1;
   padding: 0px;
   height: ${inputHeight};
-  max-width: 80%;
+  max-width: 75%;
+  vertical-align: middle;
 
   &:disabled {
     color: gray;

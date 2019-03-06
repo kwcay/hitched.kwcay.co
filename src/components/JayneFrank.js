@@ -12,8 +12,8 @@ type Props = {
 
 const JayneFrank = (props: Props) => (
   <Wrapper width={props.width}>
-    <Image height="50px" image={namesSrc} />
-    <Image height="20px" image={dateSrc} />
+    <Image height="1.8rem" margin="0.4rem" image={namesSrc} />
+    <Image height="1.2rem" margin="0.4rem" image={dateSrc} />
     <Line src={lineSrc} />
   </Wrapper>
 );
@@ -29,13 +29,11 @@ const Wrapper = styled.div`
   width: ${props => props.width};
 `;
 
-const imgMargin = '15px auto';
-
 const Image = styled.div`
   background: transparent center center no-repeat url('${props => props.image}');
   background-size: contain;
   height: ${props => props.height};
-  margin: ${imgMargin};
+  margin: ${props => props.margin} auto;
   width: 100%;
 `;
 
@@ -43,7 +41,7 @@ const Line = styled.img`
   display: table;
   height: 1px;
   width: 10%;
-  margin: ${imgMargin};
+  margin: 0.8rem auto;
 `;
 
 export default JayneFrank;
