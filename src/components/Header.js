@@ -125,7 +125,7 @@ const MobileMenu = ({ linkProps, t }) => (
 );
 
 const MENU_BUTTON_WIDTH = 35;
-const MENU_BUTTON_TOP = 20;
+const MENU_BUTTON_TOP = 30;
 
 const MobileMenuBtnWrapper = styled.div`
   width: ${MENU_BUTTON_WIDTH}px;

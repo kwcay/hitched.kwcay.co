@@ -102,7 +102,7 @@ const Input = styled.input`
 
   padding: 0px;
   height: ${inputHeight};
-  max-width: 75%;
+  max-width: 70%;
   vertical-align: middle;
 
   &:disabled {
