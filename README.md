@@ -34,7 +34,7 @@ Make sure the API is set to `http://localhost:8080`, or wherever the your local 
 # Run the app locally.
 yarn start
 
-# Deploy to Github Pages.
+# Deploy to Github Pages (don't forget to create the .env.production file).
 yarn deploy
 ```
 

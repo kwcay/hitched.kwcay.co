@@ -1,0 +1,11 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "include": ["es6.promise"],
+        "useBuiltIns": "usage"
+      }
+    ]
+  ]
+}
