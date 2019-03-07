@@ -62,6 +62,7 @@ const Wrapper = styled.header`
 
   display: table-row;
   margin: 0px auto;
+  height: 87.5px;
   width: 100%;
   position: fixed;
 `;

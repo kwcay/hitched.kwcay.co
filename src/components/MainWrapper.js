@@ -42,7 +42,7 @@ const MainWrapper = (props: Props) => {
   }
 
   return (
-    <Background>
+    <Background hasTopMargin={props.showHeaderFooter}>
       <BackgroundFilm>
         <Body hasTopMargin={props.showHeaderFooter}>
           {bodyTitle && (<BodyTitle>{bodyTitle}</BodyTitle>)}
@@ -89,11 +89,16 @@ MainWrapper.defaultProps = {
 const Background = styled.div`
   background: transparent center center no-repeat url('${backgroundSrc}');
   background-size: cover;
+  box-sizing: border-box;
 
   display: table;
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+
+  ${props => props.hasTopMargin && css`
+    padding-top: 87.5px;
+  `}
 `;
 
 const BackgroundFilm = styled.div`
@@ -116,7 +121,7 @@ const Body = styled.main`
   position: relative;
 
   ${props => props.hasTopMargin && css`
-    padding-top: 180px;
+    // top: 80px;
   `}
 `;
 
