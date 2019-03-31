@@ -105,11 +105,16 @@ export default (props: Props) => {
 
 // Supporting components
 const Details = styled.div`
-  border-spacing: 2rem 0;
+  border-spacing: 0;
   display: table;
   margin: auto;
   width: 100%;
   text-align: center;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
+    border-spacing: 2rem 0;
+    display: table-cell;
+  }
 
   ${props => props.narrow && css`
     max-width: 545px;
