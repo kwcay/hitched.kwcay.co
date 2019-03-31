@@ -40,4 +40,4 @@ yarn deploy
 
 # Translation files
 
-The translation files are in [`./src/translations`](https://github.com/kwcay/hitched.kwcay.co/tree/stable/src/translations). You can modify them directly from the Github UI.
+The translation files are in [`src/translations`](https://github.com/kwcay/hitched.kwcay.co/tree/stable/src/translations). You can modify them directly from the Github UI.

@@ -4,7 +4,7 @@
  * @flow
  */
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import * as constants from '../constants';
 import GuestAttendance from './GuestAttendance';
@@ -27,7 +27,7 @@ export default (props: Props) => {
   const { t } = useTranslation();
 
   return (
-    <Details>
+    <Details narrow={!props.invite.hasReceptionInvite}>
       <CardWrapper>
         <Card>
           <Title>{t('invitation.ceremony')}</Title>
@@ -105,10 +105,15 @@ export default (props: Props) => {
 
 // Supporting components
 const Details = styled.div`
-  text-align: center;
-  width: 100%;
-  display: table;
   border-spacing: 2rem 0;
+  display: table;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+
+  ${props => props.narrow && css`
+    max-width: 545px;
+  `}
 `;
 
 const CardWrapper = styled.div`

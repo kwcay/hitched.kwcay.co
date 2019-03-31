@@ -146,6 +146,7 @@ const Footer = styled.footer`
   justify-content: center;
   font-size: 0.8rem;
   text-align: center;
+  text-transform: uppercase;
 
   display: table-row;
   height: 6rem;
@@ -164,6 +165,7 @@ const FooterLink = styled.a`
 
   ${props => props.gold && css`
     color: ${constants.ACTIVE_COLOUR};
+    font-weight: bold;
   `}
 `;
 

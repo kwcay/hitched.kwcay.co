@@ -59,7 +59,7 @@ export const CardColumn = styled.div`
   vertical-align: top;
 
   @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
-    padding: 3%;
+    padding: 0 3%;
     width: 44%;
 
     & ~ & {
