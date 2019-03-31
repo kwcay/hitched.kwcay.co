@@ -56,9 +56,7 @@ const MainWrapper = (props: Props) => {
           <Footer>
             <FooterCentering>
               <FooterLink href="https://kwcay.co" target="_blank">
-                <MarginSpan>&copy;Kwahu</MarginSpan>
-                <MarginSpan>&amp;</MarginSpan>
-                <MarginSpan>Cayes</MarginSpan>
+                &copy;Kwahu &amp; Cayes
               </FooterLink>
 
               <FooterSeparator>|</FooterSeparator>
@@ -171,12 +169,6 @@ const FooterLink = styled.a`
 const FooterSeparator = styled.span`
   display: inline-block;
   margin: auto 0.2rem;
-`;
-
-const MarginSpan = styled.span`
-  display: inline-block;
-  margin: 0 0.14rem;
-  vertical-align: middle;
 `;
 
 export default MainWrapper;
