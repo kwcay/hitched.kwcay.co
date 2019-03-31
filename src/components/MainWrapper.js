@@ -56,8 +56,7 @@ const MainWrapper = (props: Props) => {
           <Footer>
             <FooterCentering>
               <FooterLink href="https://kwcay.co" target="_blank">
-                <MarginSpan>&copy;2019</MarginSpan>
-                <MarginSpan>Kwahu</MarginSpan>
+                <MarginSpan>&copy;Kwahu</MarginSpan>
                 <MarginSpan>&amp;</MarginSpan>
                 <MarginSpan>Cayes</MarginSpan>
               </FooterLink>
