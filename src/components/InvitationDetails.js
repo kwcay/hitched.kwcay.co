@@ -113,7 +113,7 @@ const Details = styled.div`
 
   @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
     border-spacing: 2rem 0;
-    display: table-cell;
+    // display: table-cell;
   }
 
   ${props => props.narrow && css`
