@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "a09fb50c2f55f4d27b4b",
-    "url": "/static/css/main.48b2e728.chunk.css"
+    "revision": "ab802520710805b10e4e",
+    "url": "/static/css/main.b356cd64.chunk.css"
   },
   {
-    "revision": "a09fb50c2f55f4d27b4b",
-    "url": "/static/js/main.a09fb50c.chunk.js"
+    "revision": "ab802520710805b10e4e",
+    "url": "/static/js/main.ab802520.chunk.js"
   },
   {
-    "revision": "de66460e099c1ba03870",
-    "url": "/static/js/1.de66460e.chunk.js"
+    "revision": "f80d2dcde62bada0ced5",
+    "url": "/static/js/1.f80d2dcd.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -52,7 +52,15 @@ self.__precacheManifest = [
     "url": "/static/media/frame.desktop.efc06e6e.png"
   },
   {
-    "revision": "ad04757ed6695a96c7d89f71bcd94ed0",
+    "revision": "baaba2feaf817fa33d17b4555c75b531",
+    "url": "/static/media/cover.desktop.baaba2fe.png"
+  },
+  {
+    "revision": "7dd3d2f7e2d1829c83cfb8839e89d413",
+    "url": "/static/media/cover.tablet.7dd3d2f7.png"
+  },
+  {
+    "revision": "fe124993da9936eebbca5c38f4ac63fb",
     "url": "/index.html"
   }
 ];
