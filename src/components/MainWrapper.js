@@ -11,6 +11,7 @@ type TranslatableType = string | Array;
 
 type Props = {
   children: React.ReactNode,
+  display?: string,
   messageLine1?: TranslatableType,
   messageLine2?: TranslatableType,
   showHeaderFooter?: bool,
@@ -167,8 +168,12 @@ const FooterLink = styled.a`
 `;
 
 const FooterSeparator = styled.span`
-  display: inline-block;
-  margin: auto 0.2rem;
+  display: none;
+  margin: auto;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+    display: inline-block;
+  }
 `;
 
 export default MainWrapper;

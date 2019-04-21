@@ -90,8 +90,10 @@ const InputContainer = styled.form`
 const inputHeight = '40px';
 
 const Input = styled.input`
+  appearance: none;
   background-color: black;
   border: none;
+  border-radius: 0;
   display: inline-block;
   color: white;
   font-family: Lato;

@@ -10,6 +10,8 @@ import Frame from '../components/Frame';
 import * as constants from '../constants';
 import JayneFrank from '../components/JayneFrank';
 import MainWrapper from '../components/MainWrapper';
+import coverDesktopSrc from '../assets/cover.desktop.png';
+import coverTabletSrc from '../assets/cover.tablet.png';
 
 export default (props: ContextRouter) => {
   // List of supported languages.
@@ -31,25 +33,17 @@ export default (props: ContextRouter) => {
 
   return (
     <React.Fragment>
-      <MainWrapper showHeaderFooter={false}>
+      <MainWrapper display="flex" showHeaderFooter={false}>
         <Center>
-          <FrameWrapper>
-            <Frame>
-              <InnerWrapper>
-                <Center>
-                  <JayneFrank width="90%" />
-
-                  <Selector>
-                    {languages.map(({ code }) => (
-                      <LangButton key={code} data-code={code} onClick={setLanguage}>
-                        {t('general.enterSite', { lng: code })}
-                      </LangButton>
-                    ))}
-                  </Selector>
-                </Center>
-              </InnerWrapper>
-            </Frame>
-          </FrameWrapper>
+          <Cover>
+            <Selector>
+              {languages.map(({ code }) => (
+                <LangButton key={code} data-code={code} onClick={setLanguage}>
+                  {t('general.enterSite', { lng: code })}
+                </LangButton>
+              ))}
+            </Selector>
+          </Cover>
         </Center>
       </MainWrapper>
     </React.Fragment>
@@ -62,19 +56,30 @@ const Center = styled.div`
   vertical-align: middle;
 `;
 
-const FrameWrapper = styled.div`
-  margin: auto;
-  max-width: 550px;
-`;
+const Cover = styled.div`
+  background: transparent center center no-repeat;
+  background-image: url('${coverTabletSrc}');
+  background-size: contain;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-const InnerWrapper = styled.div`
-  display: table;
-  height: 100%;
-  width: 100%;
+  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+    background-image: url('${coverDesktopSrc}');
+  }
 `;
 
 const Selector = styled.div`
-  width: 100%;
+  margin: 18vh auto;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: ${constants.DEVICE_WIDTH_DESKTOP}) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 const LangButton = styled.button`
@@ -82,15 +87,20 @@ const LangButton = styled.button`
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: 500;
   text-transform: uppercase;
 
-  height: 5rem;
-  min-width: 170px;
+  height: 3.4rem;
   transition: color 300ms;
 
   &:active, &:hover {
-    color: ${constants.ACTIVE_COLOUR};
+    color: #463019;
+  }
+
+  @media (min-width: ${constants.DEVICE_WIDTH_TABLET}) {
+    font-size: 1.9rem;
+    height: 5rem;
+    min-width: 170px;
   }
 `;

@@ -33,8 +33,8 @@ export default (props: ContextRouter) => {
             <Title>{t('facts.firstDate')}</Title>
             <Text minHeight="160px">{t('facts.firstDateDesc')}</Text>
 
-            <Title>{t('facts.lockUp')}</Title>
-            <Text>{t('facts.lockUpDesc')}</Text>
+            <Title>{t('facts.friendship')}</Title>
+            <Text>{t('facts.friendshipDesc')}</Text>
           </CardColumn>
 
           <CardColumn>
