@@ -41,12 +41,14 @@ export default (props: Props) => {
           </Text>
 
           <br />
-          <Text textAlign="center">18H00 - 20H00</Text>
+          <Text textAlign="center">12H30 - 14H30</Text>
           <Text textAlign="center">{t('invitation.ceremonyDoorsOpenAt')}</Text>
 
           <br />
-          <Text textAlign="center">12099 Camille-Tessier</Text>
-          <Text textAlign="center">Montreal, QC H1E 6A2</Text>
+          <Text textAlign="center">
+            &Eacute;glise &Eacute;vangelique Sheba, 2555 Rue Holt
+          </Text>
+          <Text textAlign="center">Montr&eacute;al, QC H1Y 1N4</Text>
 
           <Rsvp />
 
@@ -77,12 +79,12 @@ export default (props: Props) => {
             </Text>
 
             <br />
-            <Text textAlign="center">13H00 - 19H00</Text>
+            <Text textAlign="center">13H00 - 20H00</Text>
             <Text textAlign="center">{t('invitation.receptionDoorsOpenAt')}</Text>
 
             <br />
             <Text textAlign="center">La Scena - Quai Jacques-Cartier</Text>
-            <Text textAlign="center">Montreal, QC H2Y 4B2</Text>
+            <Text textAlign="center">Montr&eacute;al, QC H2Y 4B2</Text>
 
             <Rsvp />
 
