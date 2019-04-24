@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "ab802520710805b10e4e",
+    "revision": "97b29875ab2bf190af4f",
     "url": "/static/css/main.b356cd64.chunk.css"
   },
   {
-    "revision": "ab802520710805b10e4e",
-    "url": "/static/js/main.ab802520.chunk.js"
+    "revision": "97b29875ab2bf190af4f",
+    "url": "/static/js/main.97b29875.chunk.js"
   },
   {
     "revision": "f80d2dcde62bada0ced5",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/static/media/cover.tablet.7dd3d2f7.png"
   },
   {
-    "revision": "fe124993da9936eebbca5c38f4ac63fb",
+    "revision": "1b45e6d38dba9a6ca52e80611ec8cf9d",
     "url": "/index.html"
   }
 ];
