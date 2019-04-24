@@ -46,9 +46,23 @@ export default (props: Props) => {
 
           <br />
           <Text textAlign="center">
-            &Eacute;glise &Eacute;vangelique Sheba, 2555 Rue Holt
+              <a
+                href="https://goo.gl/maps/BVuDFn9cD2n49NrKA"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                &Eacute;glise Sheba, 2555 rue Holt
+              </a>
           </Text>
-          <Text textAlign="center">Montr&eacute;al, QC H1Y 1N4</Text>
+          <Text textAlign="center">
+            <a
+              href="https://goo.gl/maps/BVuDFn9cD2n49NrKA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Montr&eacute;al, QC H1Y 1N4
+            </a>
+          </Text>
 
           <Rsvp />
 
@@ -79,12 +93,28 @@ export default (props: Props) => {
             </Text>
 
             <br />
-            <Text textAlign="center">13H00 - 20H00</Text>
+            <Text textAlign="center">14H00 - 20H00</Text>
             <Text textAlign="center">{t('invitation.receptionDoorsOpenAt')}</Text>
 
             <br />
-            <Text textAlign="center">La Scena - Quai Jacques-Cartier</Text>
-            <Text textAlign="center">Montr&eacute;al, QC H2Y 4B2</Text>
+            <Text textAlign="center">
+              <a
+                href="https://goo.gl/maps/XuA9nAbvRNq3bknV9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                La Scena - Quai Jacques-Cartier
+              </a>
+            </Text>
+            <Text textAlign="center">
+              <a
+                href="https://goo.gl/maps/XuA9nAbvRNq3bknV9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Montr&eacute;al, QC H2Y 4B2
+              </a>
+            </Text>
 
             <Rsvp />
 
