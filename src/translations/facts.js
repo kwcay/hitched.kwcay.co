@@ -6,7 +6,7 @@ const en = {
   engagementDesc: 'In total Frank fashion, he proposed to Jayne in a deserted field right before baiting her with the promise of a mille-feuille (Jayne’s favourite cake/pastry). The way to a girl’s heart truly is through the stomach!',
   firstDate: 'Our first date',
   firstDateDesc: 'Our first date was actually the day after we first met. But it wasn’t really a date. More like 2 people that wanted to get to know each other at a random place on Boulevard Saint-Laurent, listening to Frank’s friend playing music. Go Paul!',
-  friendship: 'Our friendship turned into relationship',
+  friendship: 'From friendship to love',
   friendshipDesc: 'Jayne probably knew that Frank would be the man of her life from their first date. But it wasn’t until after 5 years of friendship, ups and downs, graduations, trips to Ghana and Korea that we found our way back to each other. Best friends turned boyfriend/girlfriend turned husband and wife.',
   funFacts: 'J + F Fun Facts',
   howWeMet: 'How we met',
@@ -18,7 +18,7 @@ const en = {
   title: 'Fun Facts',
   usualDates: 'Our usual dates',
   usualDatesDesc: 'We are low-key geeks that don’t have better to do than work on coding and design projects on date nights. A couple that works together, stays together, right?',
-}
+};
 
 const fr = {
   ...en,
@@ -38,6 +38,6 @@ const fr = {
   title: 'Faits Amusants',
   usualDates: 'Nos rancarts habituels',
   usualDatesDesc: 'Nous sommes un peu des as en informatique qui n’ont rien de mieux à faire que de travailler sur nos projets de programmation et de design pendant nos “sorties amoureuses”. Un couple qui travaille ensemble est un couple heureux, n’est-ce pas?',
-}
+};
 
-export default { en, fr }
+export default { en, fr };
