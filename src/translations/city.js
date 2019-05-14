@@ -32,7 +32,7 @@ const en = {
 
 const fr = {
   ...en,
-  agrikolDesc: 'If you want great vibes and great food, this is the place. But what’s best about this place is the new Head Chef, Paul Toussaint.',
+  agrikolDesc: 'Si vous cherchez une belle ambiance et de la bonne cuisine, Agrikol est la place. Mais le meilleur dans tout ça, c’est leur nouveau chef de cuisine, Paul Toussaint.',
   agrikolUrl: 'http://agrikol.ca/index.html',
   airbnbUrl: 'https://fr.airbnb.ca/s/all?query=Montreal',
   botanicalGarden: 'Le Jardin Botanique',
