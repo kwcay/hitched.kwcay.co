@@ -20,12 +20,20 @@ import type { InvitationType } from '../constants';
 type State = {
   invite: ?InvitationType,
   isFetching: bool,
+  isRefreshed: bool,
 }
 
 export default class InvitationPage extends React.Component<ContextRouter, State> {
   state = {
     invite: store.getInvitation(),
     isFetching: false,
+    isRefreshed: false,
+  }
+
+  componentDidMount() {
+    if (this.state.invite && !this.state.isRefreshed) {
+      this.fetchInvitation(this.state.invite.code);
+    }
   }
 
   handleFetchInvitation = async (event: Object) => {
@@ -38,6 +46,10 @@ export default class InvitationPage extends React.Component<ContextRouter, State
       return;
     }
 
+    return await this.fetchInvitation(code);
+  }
+
+  fetchInvitation = async (code: string) => {
     this.setState(() => ({ isFetching: true }));
 
     try {
@@ -50,6 +62,7 @@ export default class InvitationPage extends React.Component<ContextRouter, State
       this.setState(() => ({
         invite,
         isFetching: false,
+        isRefreshed: true,
       }));
     } catch (error) {
       if (error.message === 'Request failed with status code 404') {
