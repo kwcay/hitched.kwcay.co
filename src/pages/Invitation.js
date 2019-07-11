@@ -179,12 +179,16 @@ export default class InvitationPage extends React.Component<ContextRouter, State
 
   render = () => {
     const { invite } = this.state;
-    let title, messageLine1, messageLine2;
+    let title, messageLine1, messageLine2, canRespond = false;
 
     if (invite) {
       title = ['invitation.dearGuests', { guests: utils.guestsToString(invite.guests) }];
       messageLine1 = 'invitation.guestsMessageLine1';
       messageLine2 = 'invitation.guestsMessageLine2';
+
+      const deadline = new Date(2019, 7, 15, 0, 0, 0).getTime();
+      const currentTimestamp = new Date().getTime();
+      canRespond = currentTimestamp < deadline;
     }
 
     return (
@@ -198,6 +202,7 @@ export default class InvitationPage extends React.Component<ContextRouter, State
         >
           {invite
             ? (<Details
+                canRespond={canRespond}
                 invite={invite}
                 onAcceptCeremony={this.handleAcceptCeremonyInvite}
                 onAcceptReception={this.handleAcceptReceptionInvite}

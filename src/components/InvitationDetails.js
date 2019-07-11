@@ -16,6 +16,7 @@ import Card, {
 import type { InvitationType } from '../constants';
 
 type Props = {
+  canRespond: boolean,
   invite: InvitationType,
   onAcceptCeremony: (firstName: string, lastName: string) => void,
   onAcceptReception: (firstName: string, lastName: string) => void,
@@ -25,7 +26,6 @@ type Props = {
 
 export default (props: Props) => {
   const { t } = useTranslation();
-  const isWithinResponsePeriod = false;
 
   return (
     <Details narrow={!props.invite.hasReceptionInvite}>
@@ -75,7 +75,7 @@ export default (props: Props) => {
               isAttending={isAttendingCeremony}
               onAcceptInvitation={props.onAcceptCeremony}
               onDeclineInvitation={props.onDeclineCeremony}
-              canRespond={isWithinResponsePeriod}
+              canRespond={props.canRespond}
             />
           ))}
         </Card>
@@ -128,7 +128,7 @@ export default (props: Props) => {
                 isAttending={isAttendingReception}
                 onAcceptInvitation={props.onAcceptReception}
                 onDeclineInvitation={props.onDeclineReception}
-                canRespond={isWithinResponsePeriod}
+                canRespond={props.canRespond}
               />
             ))}
           </Card>
