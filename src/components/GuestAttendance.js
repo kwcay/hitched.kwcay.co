@@ -11,6 +11,7 @@ import * as constants from '../constants';
 import type { InvitationAttendanceType } from '../constants';
 
 type Props = {
+  canRespond: boolean,
   firstName: string,
   lastName: string,
   isAttending: InvitationAttendanceType,
@@ -39,13 +40,26 @@ export default (props: Props) => {
     <Wrapper>
       <Name>{fullName}</Name>
 
-      <Button selected={hasAccepted} onClick={acceptInvitation}>
-        {t('invitation.accept', { context: hasAccepted })}
-      </Button>
+      {props.canRespond ?
+        (
+          <React.Fragment>
+            <Button selected={hasAccepted} onClick={acceptInvitation}>
+              {t('invitation.accept', { context: hasAccepted })}
+            </Button>
 
-      <Button selected={hasDeclined} onClick={declineInvitation}>
-        {t('invitation.decline', { context: hasDeclined })}
-      </Button>
+            <Button selected={hasDeclined} onClick={declineInvitation}>
+              {t('invitation.decline', { context: hasDeclined })}
+            </Button>
+          </React.Fragment>
+        ) :
+        (
+          <Button disabled selected>
+            {hasAccepted
+              ? t('invitation.accept', { context: hasAccepted })
+              : t('invitation.decline', { context: hasDeclined })
+            }
+          </Button>
+        )}
     </Wrapper>
   );
 }
@@ -89,5 +103,9 @@ const Button = styled.button`
   ${props => props.selected && css`
     border-bottom-color: ${constants.TEXT_COLOUR};
     color: ${constants.TEXT_COLOUR};
+  `}
+
+  ${props => props.disabled && css`
+    cursor: not-allowed;
   `}
 `;

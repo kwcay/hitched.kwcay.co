@@ -25,6 +25,7 @@ type Props = {
 
 export default (props: Props) => {
   const { t } = useTranslation();
+  const isWithinResponsePeriod = false;
 
   return (
     <Details narrow={!props.invite.hasReceptionInvite}>
@@ -74,6 +75,7 @@ export default (props: Props) => {
               isAttending={isAttendingCeremony}
               onAcceptInvitation={props.onAcceptCeremony}
               onDeclineInvitation={props.onDeclineCeremony}
+              canRespond={isWithinResponsePeriod}
             />
           ))}
         </Card>
@@ -126,6 +128,7 @@ export default (props: Props) => {
                 isAttending={isAttendingReception}
                 onAcceptInvitation={props.onAcceptReception}
                 onDeclineInvitation={props.onDeclineReception}
+                canRespond={isWithinResponsePeriod}
               />
             ))}
           </Card>

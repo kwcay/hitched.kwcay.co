@@ -6,9 +6,7 @@ import { useTranslation } from 'react-i18next';
 import type { ContextRouter } from 'react-router-dom';
 
 import store from '../store';
-import Frame from '../components/Frame';
 import * as constants from '../constants';
-import JayneFrank from '../components/JayneFrank';
 import MainWrapper from '../components/MainWrapper';
 import coverDesktopSrc from '../assets/cover.desktop.png';
 import coverTabletSrc from '../assets/cover.tablet.png';
