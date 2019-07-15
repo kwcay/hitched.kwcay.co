@@ -186,7 +186,7 @@ export default class InvitationPage extends React.Component<ContextRouter, State
       messageLine1 = 'invitation.guestsMessageLine1';
       messageLine2 = 'invitation.guestsMessageLine2';
 
-      const deadline = new Date(2019, 7, 15, 0, 0, 0).getTime();
+      const deadline = new Date(2019, 6, 15, 0, 25, 0).getTime();
       const currentTimestamp = new Date().getTime();
       canRespond = currentTimestamp < deadline;
     }
