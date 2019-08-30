@@ -52,7 +52,7 @@ export default (props: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                &Eacute;glise Sheba, 2555 rue Holt
+                {t('invitation.ceremonyAddress')}
               </a>
           </Text>
           <Text textAlign="center">
@@ -61,7 +61,7 @@ export default (props: Props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Montr&eacute;al, QC H1Y 1N4
+              Montr&eacute;al, QC H2N 1G9
             </a>
           </Text>
 
