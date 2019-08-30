@@ -1,9 +1,9 @@
 {
-  "main.css": "/static/css/main.a7fc85ac.chunk.css",
-  "main.js": "/static/js/main.bdb5c0fe.chunk.js",
-  "main.js.map": "/static/js/main.bdb5c0fe.chunk.js.map",
-  "static/js/1.6fd8e827.chunk.js": "/static/js/1.6fd8e827.chunk.js",
-  "static/js/1.6fd8e827.chunk.js.map": "/static/js/1.6fd8e827.chunk.js.map",
+  "main.css": "/static/css/main.353d8f5a.chunk.css",
+  "main.js": "/static/js/main.06b1c88a.chunk.js",
+  "main.js.map": "/static/js/main.06b1c88a.chunk.js.map",
+  "static/js/1.7fecebf5.chunk.js": "/static/js/1.7fecebf5.chunk.js",
+  "static/js/1.7fecebf5.chunk.js.map": "/static/js/1.7fecebf5.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
   "static/media/JandF.png": "/static/media/JandF.3ffe021f.png",
@@ -17,8 +17,8 @@
   "static/media/cover.desktop.png": "/static/media/cover.desktop.baaba2fe.png",
   "static/media/cover.tablet.png": "/static/media/cover.tablet.7dd3d2f7.png",
   "static/media/date.png": "/static/media/date.9a744a66.png",
-  "static/css/main.a7fc85ac.chunk.css.map": "/static/css/main.a7fc85ac.chunk.css.map",
+  "static/css/main.353d8f5a.chunk.css.map": "/static/css/main.353d8f5a.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.e3c5cc5af29e4b8bee094a291be3f586.js": "/precache-manifest.e3c5cc5af29e4b8bee094a291be3f586.js",
+  "precache-manifest.b626adcce178cccd6aea52a1a5cec778.js": "/precache-manifest.b626adcce178cccd6aea52a1a5cec778.js",
   "service-worker.js": "/service-worker.js"
 }
