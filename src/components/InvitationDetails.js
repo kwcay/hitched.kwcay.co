@@ -48,7 +48,7 @@ export default (props: Props) => {
           <br />
           <Text textAlign="center">
               <a
-                href="https://goo.gl/maps/BVuDFn9cD2n49NrKA"
+                href="https://goo.gl/maps/v9TpZhnk65mMNt1a8"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -57,7 +57,7 @@ export default (props: Props) => {
           </Text>
           <Text textAlign="center">
             <a
-              href="https://goo.gl/maps/BVuDFn9cD2n49NrKA"
+              href="https://goo.gl/maps/v9TpZhnk65mMNt1a8"
               target="_blank"
               rel="noopener noreferrer"
             >
